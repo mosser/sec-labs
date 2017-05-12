@@ -18,7 +18,7 @@
 
 **TODO voir ce qui vient avec lustre V6, sinon back to V4**
 
-![Lustre compilation flow](figs/compilChainLustre.pdf)
+![Lustre compilation flow](figs/compilChainLustre.png)
 
 ## The LED example
 ```
