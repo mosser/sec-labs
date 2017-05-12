@@ -7,7 +7,9 @@
 
 ## Problem Description
 
-[Expected behavior](figs/demochrono.png)
+![Expected behavior](figs/demochrono.png)
+
+** TODO : change the fig! **
 
 ## Domain Description
 
@@ -26,7 +28,7 @@
 Les cartes Arduino / Guenuino sont des cartes matériellement libres
 architecturées autour d'un micro-contrôleur de la famille AVR
 d'Atmel. Pour ce TP nous utiliserons des Arduino UNO (atmega328p)
-comme celui de la Figure~\ref{fig:ardui}, qui fournissent un certain
+comme celui de la Figure, qui fournissent un certain
 nombre d'entrées sorties numériques et analogiques sur lesquelles nous
 pourrons connecter des LEDs, des boutons poussoir, un afficheur 7
 segment.
@@ -65,7 +67,7 @@ durant 2 semaines **
 
 ### Switch the light on!
 
-![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13.jpg)
+![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13_cut.jpg)
 
 ### Count to 9
 
@@ -73,7 +75,7 @@ durant 2 semaines **
 ![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
 
 ![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
-![7 seg Common Anodeode interface](figs/numerotation_7seghorizontal_AC.png)
+![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.jpg)
 
 ** TODO ajouter les résistances **
 
