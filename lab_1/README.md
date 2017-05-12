@@ -1,3 +1,28 @@
+
+
+
+
+
+
+
+
+![figs/arduino-uno-dip-rev3.jpg](Arduino Uno Platform)
+
+# Pre-installation #
+
+## Arduino stuff ##
+
+You may have to install the following (Linux) packages: `arduino` ,
+`gcc-avr` and avrdude (`avr-binutils` et `avr-libc` if they are not included)
+
+`avrdude.conf` must be in `/usr/share/arduino/hardware/tools/` (if not you
+have to modify Makefiles).
+
+The user should have the right to write on  the USB port : 
+`usermod -aG dialout <username>`
+
+
+
 # SEC-Lab 1: ArduinoML
 
   * M2 IF, ENS Lyon
@@ -29,3 +54,4 @@ In this lab, you will implement the very same (simple) piece of software, at dif
   6. [Implementing an external compiler](https://github.com/mosser/sec-labs/lab_1/step_6.md)
   7. [Embedding inside an host language](https://github.com/mosser/sec-labs/lab_1/step_7.md)
   8. [Using a DSL workbench](https://github.com/mosser/sec-labs/lab_1/step_8.md)
+
