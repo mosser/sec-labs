@@ -5,8 +5,6 @@
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
   * Version: 2017.05
 
-  * Previous step:
-
 ## Objectives
 
 ## Documentation & Bibliography
@@ -59,4 +57,8 @@ Other links:
 
 
 
-  * Going to next step: 
+
+
+
+  * Going to next step: [Step #2](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
+
