@@ -7,6 +7,8 @@
 
 ## Problem Description
 
+[Expected behavior](figs/demochrono.png)
+
 ## Domain Description
 
 ### Pre-installation (Arduino stuff)
@@ -69,6 +71,9 @@ durant 2 semaines **
 
 ![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
 ![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
+
+![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
+![7 seg Common Anodeode interface](figs/numerotation_7seghorizontal_AC.png)
 
 ** TODO ajouter les résistances **
 
