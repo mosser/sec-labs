@@ -13,17 +13,20 @@
 
 ![Arduino Uno Platform](figs/arduino-uno-dip-rev3.jpg)
 
+# Pre-installation #
+
+## Arduino stuff ##
+
   * You may have to install the following (Linux) packages: `arduino` ,
 `gcc-avr` and `avrdude` (`avr-binutils` et `avr-libc` if they are not included)
-
-  * `avrdude.conf` must be in `/usr/share/arduino/hardware/tools/` (if not you
-have to modify Makefiles).
-
+  * `avrdude.conf` must be in `/usr/share/arduino/hardware/tools/` (if not you have to modify Makefiles).
   * The user should have the right to write on  the USB port : 
 `usermod -aG dialout <username>`
 
-
 ## Example Applications
+
+![Arduino Uno Platform](figs/montage.jpg)
+
 
 ### Switch the light on!
 
