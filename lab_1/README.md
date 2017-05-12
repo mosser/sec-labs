@@ -19,6 +19,43 @@
   * The user should have the right to write on  the USB port : 
 `usermod -aG dialout <username>`
 
+### A traduire 
+
+Les cartes Arduino / Guenuino sont des cartes matériellement libres
+architecturées autour d'un micro-contrôleur de la famille AVR
+d'Atmel. Pour ce TP nous utiliserons des Arduino UNO (atmega328p)
+comme celui de la Figure~\ref{fig:ardui}, qui fournissent un certain
+nombre d'entrées sorties numériques et analogiques sur lesquelles nous
+pourrons connecter des LEDs, des boutons poussoir, un afficheur 7
+segment.
+
+
+Le micro-contrôleur est
+programmé avec un bootloader de façon à ce qu'un programmateur
+  dédié ne soit pas nécessaire. Les Makefile fournis utiliseront
+  `avrdude` [doc](http://www.nongnu.org/avrdude/)
+  pour charger les binaires dans la mémoire du  micro-contrôleur.
+
+
+On vous fournit par trinôme une plateforme de TP comportant 1 arduino
+Uno, un cable USB, une plateforme ``breadboard'', un écran LCD 2
+lignes, deux LEDs (une rouge, une jaune), trois résistances 220 ohm,
+et une vingtaine de fils. ** Ils seront sous votre responsabilité
+durant 2 semaines **
+
+*  On utilise une plaque d'essai *breadboard* sans
+  soudure. Dans cette plaque, 
+  tous les points d'une même ligne d'alimentation (horizontales sur le
+  schéma) et tous les points d'une même colonne (numérotées 20, 30,
+  ... sur le schéma) sont connectés entre eux.
+
+* La grande patte de la LED est connectée au port Analog 13 de
+  l'Arduino via une resistance 220 ohm. 
+
+* Le circuit est fermé en reliant la petite patte de la LED à la
+  masse, via la ligne noire (ou bleue) du *breadboard*.
+
+
 ## Example Applications
 
 ![Arduino Uno Platform](figs/montage.jpg)
@@ -26,7 +63,14 @@
 
 ### Switch the light on!
 
+![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13.jpg)
+
 ### Count to 9
+
+![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
+![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
+
+** TODO ajouter les résistances **
 
 ### The all together
 
