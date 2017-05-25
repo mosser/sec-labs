@@ -51,7 +51,7 @@ We give you the LED example, and here are some information:
 ### Additional documentation
 
 Other links:
-* [port manipulation](https://www.arduino.cc/en/Reference/PortManipulation)). Warning,
+* [port manipulation](https://www.arduino.cc/en/Reference/PortManipulation). Warning,
 the documentation is for the Arduino Lib format. In raw C, you should use 
 `0b11111110` (rather than `B11111110`).
 * [Boolean operators](http://playground.arduino.cc/Code/BitMath), 
