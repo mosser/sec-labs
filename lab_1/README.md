@@ -40,12 +40,9 @@ programmé avec un bootloader de façon à ce qu'un programmateur
   `avrdude` [doc](http://www.nongnu.org/avrdude/)
   pour charger les binaires dans la mémoire du  micro-contrôleur.
 
-
-On vous fournit par trinôme une plateforme de TP comportant 1 arduino
-Uno, un cable USB, une plateforme ``breadboard'', un écran LCD 2
-lignes, deux LEDs (une rouge, une jaune), trois résistances 220 ohm,
-et une vingtaine de fils. ** Ils seront sous votre responsabilité
-durant 2 semaines **
+You will be given a whole platform with an arduino, some leds, a
+breadboard, \ldots  **You will be responsible for them for the
+duration of the lab**
 
 *  On utilise une plaque d'essai *breadboard* sans
   soudure. Dans cette plaque, 
@@ -53,12 +50,12 @@ durant 2 semaines **
   schéma) et tous les points d'une même colonne (numérotées 20, 30,
   ... sur le schéma) sont connectés entre eux.
 
-* La grande patte de la LED est connectée au port Analog 13 de
-  l'Arduino via une resistance 220 ohm. 
+* Led on digital 13 with 220 ohm resistor. (grande pate au digital 13)
 
-* Le circuit est fermé en reliant la petite patte de la LED à la
-  masse, via la ligne noire (ou bleue) du *breadboard*.
+* Button on digital 10, and 220 ohm resistor.
 
+* 7 segment : a on digital 1 via resistor 220 ohm, b on digital 2, \ldots
+  g on digital 7 .
 
 ## Example Applications
 
@@ -67,7 +64,9 @@ durant 2 semaines **
 
 ### Switch the light on!
 
-![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13_cut.jpg)
+![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13_cut.png)
+
+![Button on Port Digital 10](figs/boutonpoussoir_arduino.png)
 
 ### Count to 9
 
@@ -75,9 +74,12 @@ durant 2 semaines **
 ![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
 
 ![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
-![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.jpg)
+![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.png)
 
-** TODO ajouter les résistances **
+**Warning, the 7 segment displays should be connected though resistors
+(from 220 to 400 ohm):**
+
+
 
 ### The all together
 
