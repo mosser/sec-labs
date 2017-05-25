@@ -23,25 +23,21 @@
   * The user should have the right to write on  the USB port : 
 `usermod -aG dialout <username>`
 
-### A traduire 
+### Some Arduino general information
 
-Les cartes Arduino / Guenuino sont des cartes matériellement libres
-architecturées autour d'un micro-contrôleur de la famille AVR
-d'Atmel. Pour ce TP nous utiliserons des Arduino UNO (atmega328p)
-comme celui de la Figure, qui fournissent un certain
-nombre d'entrées sorties numériques et analogiques sur lesquelles nous
-pourrons connecter des LEDs, des boutons poussoir, un afficheur 7
-segment.
+Arduino/Genuino cards are free cards build around a Atmel AVR
+microntroler. In this lab we will use  Arduino UNOs (atmega328p) like
+in the following picture. The platform has a few numerical and
+analogic I/Os where we will connect LEDs, buttons, seven segment led
+displays...
 
+The microcontroler itself is programmed with a bootloader so that a dedicated
+system is not necessary. The Makefile we give you will use   `avrdude`
+[doc](http://www.nongnu.org/avrdude/) to load the binaries into the
+microcontroler memory.
 
-Le micro-contrôleur est
-programmé avec un bootloader de façon à ce qu'un programmateur
-  dédié ne soit pas nécessaire. Les Makefile fournis utiliseront
-  `avrdude` [doc](http://www.nongnu.org/avrdude/)
-  pour charger les binaires dans la mémoire du  micro-contrôleur.
-
-You will be given a whole platform with an arduino, some leds, a
-breadboard, \ldots  **You will be responsible for them for the
+You will be given a whole platform with an arduino UNO, some leds, a
+breadboard, wires ... **You will be responsible for them for the
 duration of the lab**
 
 *  On utilise une plaque d'essai *breadboard* sans
@@ -50,12 +46,6 @@ duration of the lab**
   schéma) et tous les points d'une même colonne (numérotées 20, 30,
   ... sur le schéma) sont connectés entre eux.
 
-* Led on digital 13 with 220 ohm resistor. (grande pate au digital 13)
-
-* Button on digital 10, and 220 ohm resistor.
-
-* 7 segment : a on digital 1 via resistor 220 ohm, b on digital 2, \ldots
-  g on digital 7 .
 
 ## Example Applications
 
@@ -64,23 +54,34 @@ duration of the lab**
 
 ### Switch the light on!
 
+* Led on digital 13 with 220 ohm resistor. (long leg to digital 13) 
+* Button on digital 10, and 220 ohm resistor.
+
 ![Arduino Uno + Led on Port Digital 13](figs/p-led_schema1_port13_cut.png)
 ![Button on Port Digital 10](figs/p-boutonpoussoir_arduino.png)
 
+
 ### Count to 9
+
+* The seven segment displays can be "common cathode" or "common anode":
+
+![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
+![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.png)
+
+* 7 segment : a on digital 1 via resistor 220 ohm, b on digital 2, ...
+  g on digital 7, according to the preceeding numbering.
 
 ![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
 ![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
 
-![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
-![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.png)
 
 **Warning, the 7 segment displays should be connected though resistors
 (from 220 to 400 ohm):**
 
 
-
 ### The all together
+
+
 
 ## Steps
 
