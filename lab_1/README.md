@@ -37,14 +37,10 @@ system is not necessary. The Makefile we give you will use   `avrdude`
 microcontroler memory.
 
 You will be given a whole platform with an arduino UNO, some leds, a
-breadboard, wires ... **You will be responsible for them for the
-duration of the lab**
+breadboard, wires ...  **You will be responsible for them for the
+duration of the lab** On the breadboards, all points in a given
+supply line (blue/black, read) are connected. Same for the columns.
 
-*  On utilise une plaque d'essai *breadboard* sans
-  soudure. Dans cette plaque, 
-  tous les points d'une même ligne d'alimentation (horizontales sur le
-  schéma) et tous les points d'une même colonne (numérotées 20, 30,
-  ... sur le schéma) sont connectés entre eux.
 
 
 ## Example Applications
@@ -74,9 +70,10 @@ duration of the lab**
 ![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
 ![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
 
+** TODO : change the fig !**
 
 **Warning, the 7 segment displays should be connected though resistors
-(from 220 to 400 ohm):**
+(from 220 to 400 ohm)**
 
 
 ### The all together
