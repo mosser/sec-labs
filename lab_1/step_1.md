@@ -51,11 +51,11 @@ We give you the LED example, and here are some information:
 ### Additional documentation
 
 Other links:
-*[port manipulation](https://www.arduino.cc/en/Reference/PortManipulation)). Warning,
+* [port manipulation](https://www.arduino.cc/en/Reference/PortManipulation)). Warning,
 the documentation is for the Arduino Lib format. In raw C, you should use 
 `0b11111110` (rather than `B11111110`).
-*[Boolean operators](http://playground.arduino.cc/Code/BitMath), 
-*[AVR libc doc for delays](http://www.nongnu.org/avr-libc/user-manual/group__util__delay.html).
+* [Boolean operators](http://playground.arduino.cc/Code/BitMath), 
+* [AVR libc doc for delays](http://www.nongnu.org/avr-libc/user-manual/group__util__delay.html).
 
 
 
@@ -76,7 +76,8 @@ void display_7seg(int value){
   case 0: //a,b,c,d,e,f
     PORTD = 0b01111110;
     break;
-	...
+	//todo: implement the rest!
+}
 ```
 And use it to increment the 7 segment value each time you enter the
   loop. If the button is pressed, the 7-segment should reset
