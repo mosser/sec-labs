@@ -68,9 +68,10 @@ the documentation is for the Arduino Lib format. In raw C, you should use
   the `setup` function if required. Test. 
   
 * Add functionality for the seven-segment display: write a `void
-  display_7seg(int value)` function to display a given number, as an
+display_7seg(int value)` function to display a given number.
+As an
   example, our version begins with:
-  ```C
+```C
 void display_7seg(int value){
   switch (value) {
   case 0: //a,b,c,d,e,f
