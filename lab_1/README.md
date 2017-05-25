@@ -65,8 +65,7 @@ duration of the lab**
 ### Switch the light on!
 
 ![Arduino Uno + Led on Port Digital 13](figs/p-led_schema1_port13_cut.png)
-
-![Button on Port Digital 10](figs/p-boutonpoussoir_arduino.png =250x)
+![Button on Port Digital 10](figs/p-boutonpoussoir_arduino.png)
 
 ### Count to 9
 
