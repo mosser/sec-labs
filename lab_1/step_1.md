@@ -7,7 +7,11 @@
 
 ## Objectives
 
-## Documentation & Bibliography
+Use the avr standard C library to code the functionality.
+
+## Arduino programming style
+
+Here is the pattern we will use to program the arduino : 
 
 ```C
 #include <avr/io.h>
@@ -16,47 +20,67 @@
 
 int main(void)
 {
-        //initialisation de ports, variables, ...
+        setup(); // you should also implement the setup
         while(1)
         {
-          //des trucs
-          _delay_ms(300);
+          //functionnality here
+          _delay_ms(1000);// you can change this number
         }
 }
 ```
 
+You have to implement the `setup` function as well as the
+functionnality.
+
 ### Blink a led (or control a wire)
-Pour allumer ou éteindre une LED, il faut configurer le registre
-d'entrée/sortie sur lequel est connectée la LED. Comme l'explique la
-documentation (Voir
-  [port manip](https://www.arduino.cc/en/Reference/PortManipulation)). Attention,
-la documentation est faite pour le langage arduino de haut
-niveau. Pour manipuler une chaîne de bits en C on pourra utiliser
-`0b11111110` (à la place du `B11111110`).
 
-* Les
-connections ``analog'' 0 à 5 sont contrôlées à l'aide du registre
-nommé \verb!PORTC! (commande) le bit
-0 de chacun de ces deux registres commande la connection 0, le bit 1 la
-connection 1, ... ** todo changer pour digital 13 **
+To switch a led on or off on a arduino, we need to
+* configure the port/pin where the led is connected into
+  _reading mode_. 
+* write a 0 (off) or a 1 (on) into the same port when required.
 
-*Le registre de configuration se nomme DDRC. Chaque bit de ce
-  registre représente une entrée / sortie du port C (le bit 0 pour la
-  connection 0, ...). Un 0 signifie une utilisation en tant
-  qu'entrée et un 1 signifie une utilisation en tant que sortie.
+We give you the LED example, and here are some information:
+* As the led is linked to digital pin 13, the port to be manipulated
+  is DDRB, here every single pin from 8 to 13 is set to "input" (0)
+  excepting bit 5 which gives an "output" access to the led (1).
+
+* The instruction `PORTB ^= 0b00100000;` makes the led blink, as the xor
+  operator permits to toggle the 5th bit from 0 to 1 or 1 to 0 each
+  time we enter a different loop.
+
+### Additional documentation
 
 Other links:
-[Boolean](http://playground.arduino.cc/Code/BitMath)
-[AVR libc doc](http://www.nongnu.org/avr-libc/user-manual/group__util__delay.html)
+*[port manipulation](https://www.arduino.cc/en/Reference/PortManipulation)). Warning,
+the documentation is for the Arduino Lib format. In raw C, you should use 
+`0b11111110` (rather than `B11111110`).
+*[Boolean operators](http://playground.arduino.cc/Code/BitMath), 
+*[AVR libc doc for delays](http://www.nongnu.org/avr-libc/user-manual/group__util__delay.html).
 
 
-
-## The LED example
 
 ## Expected Work
 
-
-
+* Add functionality for the button: write a `int get_reset_value()`
+  function that reads on digital 10 (use `PINB` value and some boolean
+  operators). Use it in the `main` to control the led (switch it on to
+  off or off to on if the button is pressed). Do not forget to update
+  the `setup` function if required. Test. 
+  
+* Add functionality for the seven-segment display: write a `void
+  display_7seg(int value)` function to display a given number, as an
+  example, our version begins with:
+  ```C
+void display_7seg(int value){
+  switch (value) {
+  case 0: //a,b,c,d,e,f
+    PORTD = 0b01111110;
+    break;
+	...
+```
+And use it to increment the 7 segment value each time you enter the
+  loop. If the button is pressed, the 7-segment should reset
+  to 0. Test.
 
 
 
