@@ -66,7 +66,7 @@ duration of the lab**
 
 ![Arduino Uno + Led on Port Digital 13](figs/led_schema1_port13_cut.png)
 
-![Button on Port Digital 10](figs/boutonpoussoir_arduino.png)
+![Button on Port Digital 10](figs/boutonpoussoir_arduino.png =250x)
 
 ### Count to 9
 
