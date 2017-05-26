@@ -42,7 +42,7 @@ tel
 **TODO voir ce qui vient avec lustre V6, sinon back to V4**
 
 * Lustre Compilation Flow: 
-![Lustre compilation flow](figs/compilChainLustre.png)
+![Lustre compilation flow](figs/compil2.png)
 
 **TODO modifier le dessin **
 
