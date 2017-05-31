@@ -18,4 +18,4 @@
 
 
 
-  * Going to next step: [Step #3](https://github.com/mosser/sec-labs/blob/master/lab_1/step_3.md)
+  * Going to next step: [Step #5](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
