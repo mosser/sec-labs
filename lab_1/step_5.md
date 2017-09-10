@@ -12,6 +12,14 @@
 
 Use the Lustre synchronous language and compiler.
 
+## Getting Started!
+
+First launch the
+script to install Lustre, and play with the provided Lustre examples
+and the luciole simulator:
+```
+luciole edge2.lus edge
+```
 
 ## The LED example
 
@@ -37,14 +45,12 @@ tel
 ## Documentation & Bibliography
 
 * Have a look into the 
-[Lustre official webpage](http://www-verimag.imag.fr/Lustre-V6.html?lang=fr)
-
-**TODO voir ce qui vient avec lustre V6, sinon back to V4**
+[Lustre V6 official webpage](http://www-verimag.imag.fr/Lustre-V6.html?lang=fr)
+We will use the V4 distribution but the language description is
+accurate in the V6 documentation.
 
 * Lustre Compilation Flow: 
 ![Lustre compilation flow](figs/compil2.png)
-
-**TODO modifier le dessin **
 
 * The Lustre compiler comes with some other tools like a simulator, and
  a model checker. If you have time, you can play with them and try to
