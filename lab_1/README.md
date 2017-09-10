@@ -7,9 +7,14 @@
 
 ## Problem Description
 
-![Expected behavior](figs/demochrono.png)
 
-** TODO : change the fig! **
+The expected behavior from your code: the seven segment display numbers
+from 0 to 9 then 0, and so one, with a frequency of 1Hz. Of the user
+press the button, then it resets and continue to count from 0. The led
+changes its state (on/off) every time the button is pressed.
+
+![Expected behavior](figs/expected_behavior_cr10.png)
+
 
 ## Domain Description
 
@@ -77,14 +82,12 @@ supply line (blue/black, read) are connected. Same for the columns.
 
 ### The all together
 
-The expected behavior from your code: the seven segment display numbers
-from 0 to 9 then 0, and so one, with a frequency of 1Hz. Of the user
-press the button, then it resets and continue to count from 0. The led
-changes its state (on/off) every time the button is pressed.
+You will see that composing behaviors is not as simple as it seems!
+
 
 ## Steps
 
-In this lab, you will implement the very same (simple) behavior, at different levels of abstraction. This journey through abstraction levels will help you to identify the pros and cons of each level, and the importance of model-driven engineering and domain-specific languages to reason about domains.
+In this lab, you will implement this very same (simple) behavior, at different levels of abstraction. This journey through abstraction levels will help you to identify the pros and cons of each level, and the importance of model-driven engineering and domain-specific languages to reason about domains.
 
   1. [Plain old C code](https://github.com/mosser/sec-labs/blob/master/lab_1/step_1.md)
   2. [Using the ArduinoLib](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
