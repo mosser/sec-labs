@@ -65,12 +65,11 @@ supply line (blue/black, read) are connected. Same for the columns.
 ![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.png)
 
 * 7 segment : a on digital 1 via resistor 220 ohm, b on digital 2, ...
-  g on digital 7, according to the preceeding numbering.
+  g on digital 7, according to the preceeding numbering. For instance,
+  for the Comon Cathode setting:
 
 ![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
-![Arduino Uno + 7 seg Common Anode](figs/7SegmentAC_bb.png)
 
-** TODO : change the fig !**
 
 **Warning, the 7 segment displays should be connected though resistors
 (from 220 to 400 ohm)**
@@ -78,11 +77,14 @@ supply line (blue/black, read) are connected. Same for the columns.
 
 ### The all together
 
-
+The expected behavior from your code: the seven segment display numbers
+from 0 to 9 then 0, and so one, with a frequency of 1Hz. Of the user
+press the button, then it resets and continue to count from 0. The led
+changes its state (on/off) every time the button is pressed.
 
 ## Steps
 
-In this lab, you will implement the very same (simple) piece of software, at different levels of abstraction. This journey through abstraction levels will help you to identify the pros and cons of each level, and the importance of model-driven engineering and domain-specific languages to reason about domains.
+In this lab, you will implement the very same (simple) behavior, at different levels of abstraction. This journey through abstraction levels will help you to identify the pros and cons of each level, and the importance of model-driven engineering and domain-specific languages to reason about domains.
 
   1. [Plain old C code](https://github.com/mosser/sec-labs/blob/master/lab_1/step_1.md)
   2. [Using the ArduinoLib](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
