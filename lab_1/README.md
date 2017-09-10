@@ -86,7 +86,7 @@ In this lab, you will implement the very same (simple) piece of software, at dif
 
   1. [Plain old C code](https://github.com/mosser/sec-labs/blob/master/lab_1/step_1.md)
   2. [Using the ArduinoLib](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
-  3. [Implemeting a Finite State Machine](https://github.com/mosser/sec-labs/blob/master/lab_1/step_3.md)
+  3. [Implementing a Finite State Machine](https://github.com/mosser/sec-labs/blob/master/lab_1/step_3.md)
   4. [Modelling a Finite state machine](https://github.com/mosser/sec-labs/blob/master/lab_1/step_4.md)
   5. [Using an existing language: Lustre](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
   6. [Implementing an external compiler](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
