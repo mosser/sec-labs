@@ -31,8 +31,8 @@
 
 ## Lab Organisation
 
-      * Lab #1: [ArduinoML](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
-      * Lab #2: [Workflow Language](https://github.com/mosser/sec-labs/blob/master/lab_2/README.md)
+  * Lab #1: [ArduinoML](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
+  * Lab #2: [Workflow Language](https://github.com/mosser/sec-labs/blob/master/lab_2/README.md)
 
 ### Deliveries
 
