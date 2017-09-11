@@ -11,7 +11,7 @@
 
 NEED=""
 [ "$(which avr-gcc)" = "" ] && NEED="$NEED gcc-avr"
-[ "$(which arduino)" = "" ] && NEED="$NEED arduino"
+#[ "$(which arduino)" = "" ] && NEED="$NEED arduino"
 [ "$(which tclsh)"   = "" ] && NEED="$NEED tcl"
 if [ "$NEED" != "" ]
 then
