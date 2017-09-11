@@ -16,6 +16,11 @@ For each lab, you'll have to implement two simple behaviors, and then compose th
   2. Building a simple counter using a 7-segment display;
   3. Compose the two apps so that the button control both the display and the LED.
 
+![Arduino Uno Platform](figs/montage.jpg)
+
+
+You will be given a whole platform with an Arduino UNO, some leds, a breadboard, wires ...  **You will be responsible for them for the duration of the lab** On the breadboards, all points in a given supply line (blue/black, read) are connected. Same for the columns. More details about the experimental setup are available here: [Board details](https://github.com/mosser/sec-labs/blob/master/lab_1/_board.md)
+
 ## Steps
 
 We decomposed this lab into 8 steps, from a low level of abstraction (plain old C code) to high level meta-programming environments (DSL workbench). At each step, the lab describe how to model/implement the "LED" example. You'll have to adapt this example to fit the "counter" example, and the composition.
