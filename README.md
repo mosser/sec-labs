@@ -16,7 +16,7 @@
      - Thursday: Lab #1
      - Friday: Lab #1 continued (1h30) + V&V (1h30, LG)
   - Week 39: Unsupervised lab session
-    - Lab delivery expected XXXXX
+    - Lab delivery expected at the end of the week (Sunday)
 
 ### Phase #2: Workflow engine (40, 41, 42)
 
