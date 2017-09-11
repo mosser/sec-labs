@@ -3,12 +3,12 @@
   * M2 IF, ENS Lyon
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
-  * Version: 2017.05
+  * Version: 2017.09
 
 ## Objectives
 
   1. Understand the execution semantics associated to the board;
-  2. Use the `avr` standard C library to code the functionality;
+  2. Use the `avr` standard C library to code the feature;
   3. Use `make` to automate compilation & upload the program on the board.
 
 ## Arduino programming style
