@@ -4,3 +4,5 @@
 **/*~
 **/target
 **/.iml
+**/output/main.c
+**/output/fsm.h

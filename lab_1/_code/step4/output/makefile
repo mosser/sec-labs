@@ -52,7 +52,7 @@ export DUDE = $(AVRDUDE_PATH)/avrdude -F -v -p $(MCU) $(AVRDUDECONF)
 all: $(TARGET).hex
 
 clean:
-	rm -f *.o *~ *.elf *.hex 
+	rm -f *.o *~ *.elf *.hex fsm.h main.c
 
 %.o:%.c
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
@@ -71,4 +71,3 @@ upload: $(TARGET).hex
 
 size: $(TARGET).elf
 	avr-size --format=avr --mcu=$(MCU) $(TARGET).elf
-
