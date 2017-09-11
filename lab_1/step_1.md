@@ -7,36 +7,41 @@
 
 ## Objectives
 
-Use the avr standard C library to code the functionality.
+  1. Understand the execution semantics associated to the board;
+  2. Use the `avr` standard C library to code the functionality;
+  3. Use `make` to automate compilation & upload the program on the board. 
 
 ## Arduino programming style
 
-Here is the pattern we will use to program the arduino : 
+Here is the pattern we will use to program the Arduino :
 
 ```C
 #include <avr/io.h>
 #include <util/delay.h>
-#include <avr/interrupt.h> 
+
+void setup(void)
+{
+}
 
 int main(void)
 {
         setup(); // you should also implement the setup
         while(1)
         {
-          //functionnality here
+          // functionality here
           _delay_ms(1000);// you can change this number
         }
 }
 ```
 
-You have to implement the `setup` function as well as the
-functionnality.
+The program to embed on the board implements an infinite loop, where the main behavior will be called. The `setup` procedure is used to initialize the board, //e.g//, specify which pin is used as input or output.
+
 
 ### Blink a led (or control a wire)
 
 To switch a led on or off on a arduino, we need to
 * configure the port/pin where the led is connected into
-  _reading mode_. 
+  _reading mode_.
 * write a 0 (off) or a 1 (on) into the same port when required.
 
 We give you the LED example, and here are some information:
@@ -52,9 +57,9 @@ We give you the LED example, and here are some information:
 
 Other links:
 * [port manipulation](https://www.arduino.cc/en/Reference/PortManipulation). Warning,
-the documentation is for the Arduino Lib format. In raw C, you should use 
+the documentation is for the Arduino Lib format. In raw C, you should use
 `0b11111110` (rather than `B11111110`).
-* [Boolean operators](http://playground.arduino.cc/Code/BitMath), 
+* [Boolean operators](http://playground.arduino.cc/Code/BitMath),
 * [AVR libc doc for delays](http://www.nongnu.org/avr-libc/user-manual/group__util__delay.html).
 
 
@@ -65,8 +70,8 @@ the documentation is for the Arduino Lib format. In raw C, you should use
   function that reads on digital 10 (use `PINB` value and some boolean
   operators). Use it in the `main` to control the led (switch it on to
   off or off to on if the button is pressed). Do not forget to update
-  the `setup` function if required. Test. 
-  
+  the `setup` function if required. Test.
+
 * Add functionality for the seven-segment display: write a `void
 display_7seg(int value)` function to display a given number.
 As an
@@ -87,4 +92,3 @@ And use it to increment the 7 segment value each time you enter the
 
 
   * Going to next step: [Step #2](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
-
