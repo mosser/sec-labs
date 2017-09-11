@@ -1,11 +1,16 @@
 ##################
 # general options
-
 export CC = avr-gcc
 export MCU = atmega328p
 export TARGET_ARCH = -mmcu=$(MCU)
 
 TARGET = led7seg
+
+LUSTRE_SRC = $(TARGET).lus 
+LUSTRE_MAINNODE = cpt
+C_SRC = $(wildcard *.c)
+OBJS = $(LUSTRE_MAINNODE).o $(C_SRC:.c=.o)
+CPPFLAGS = -mmcu=$(MCU)
 
 
 #######################
@@ -34,7 +39,7 @@ ARDUINO_STD = $(ARDUINO_HW_ROOT)/variants/standard
 
 ###########################
 # compiler and linker flags
-export CFLAGS = -mmcu=$(MCU) -Wall -I. -I$(ARDUINO_H) -I$(ARDUINO_STD) -DF_CPU=16000000 -Os #-g
+export CFLAGS =  -Wall -I. -I$(ARDUINO_H) -I$(ARDUINO_STD) -DF_CPU=16000000 -Os #-g
 export LDFLAGS = -g $(TARGET_ARCH) -lm -Wl,--gc-sections #	-Os
 
 
@@ -46,18 +51,16 @@ ARVDUDECONF= -C $(AVRDUDECONF_LOC)/avrdude.conf
 export DUDE = $(AVRDUDE_PATH)/avrdude -F -v -p $(MCU) $(AVRDUDECONF)
 
 
-## et on ne compile que la correction :-)
-## pour les étudiants, mettre C_SRC= uniquement le wildcard.
-C_SRC = $(filter-out main.c, $(wildcard *.c))
-OBJS = $(C_SRC:.c=.o)
-
-
 all: $(TARGET).hex
+
+$(LUSTRE_MAINNODE).o: $(LUSTRE_SRC)
+	lus2c $^ $(LUSTRE_MAINNODE)
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) $(LUSTRE_MAINNODE).c -o $(LUSTRE_MAINNODE).o
 
 %.o:%.c
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
 
-$(TARGET).elf: $(OBJS)
+$(TARGET).elf:  $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS)
 
 $(TARGET).hex: $(TARGET).elf
@@ -65,12 +68,12 @@ $(TARGET).hex: $(TARGET).elf
 	avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 -O ihex $(TARGET).elf eeprom.hex
 
 upload: $(TARGET).hex
-	stty -F $(TERM) hupcl # reset
+	stty $(STTY_OPT) $(TERM) hupcl # reset
 	$(DUDE) $(PGMERISP) -U flash:w:$(TARGET).hex
 
-size: $(TARGET).elf
+size: $(TARGET).elf 
 	avr-size --format=avr --mcu=$(MCU) $(TARGET).elf
 
 
 clean:
-	rm -f *.o *~ *.hex *.elf
+	rm -f *.o *~ *.oc *.ec cpt demo cpt.c cpt.h cpt_loop.c *.hex *.elf

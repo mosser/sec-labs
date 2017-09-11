@@ -1,0 +1,13 @@
+--programme qui detecte un front montant
+
+node edge (b : bool) returns (edge : bool);
+     let
+        edge = false -> b and not pre b;
+     tel
+
+node obs (b:bool) returns (ok:bool);
+var resu1:bool;
+let
+	resu1 = edge(b);
+	ok = true -> (resu1 => not pre resu1);
+tel

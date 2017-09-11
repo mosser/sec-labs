@@ -1,0 +1,4 @@
+node cpt(reset: bool)  returns (led_on: bool) ;
+let
+   led_on = false -> not(pre(led_on));
+tel
