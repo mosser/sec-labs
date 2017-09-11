@@ -35,4 +35,4 @@ We decomposed this lab into 8 steps, from a low level of abstraction (plain old 
   7. [Embedding inside an host language](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
   8. [Using a DSL workbench](https://github.com/mosser/sec-labs/blob/master/lab_1/step_8.md)
 
-For each step, the kick-off code is available under the [code directory](https://github.com/mosser/sec-labs/tree/master/lab_1/code). Use it as a starter to support the LED case study and to be adapted for the counter one.
+For each step, the kick-off code is available under the [code directory](https://github.com/mosser/sec-labs/tree/master/lab_1/_code). Use it as a starter to support the LED case study and to be adapted for the counter one.
