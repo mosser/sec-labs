@@ -46,9 +46,8 @@ ARVDUDECONF= -C $(AVRDUDECONF_LOC)/avrdude.conf
 export DUDE = $(AVRDUDE_PATH)/avrdude -F -v -p $(MCU) $(AVRDUDECONF)
 
 
-## et on ne compile que la correction :-)
-## pour les étudiants, mettre C_SRC= uniquement le wildcard.
-C_SRC = $(filter-out main.c, $(wildcard *.c))
+### OBJS
+C_SRC = $(wildcard *.c)
 OBJS = $(C_SRC:.c=.o)
 
 
