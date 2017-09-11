@@ -9,7 +9,7 @@
 
   1. Understand the execution semantics associated to the board;
   2. Use the `avr` standard C library to code the functionality;
-  3. Use `make` to automate compilation & upload the program on the board. 
+  3. Use `make` to automate compilation & upload the program on the board.
 
 ## Arduino programming style
 
@@ -19,29 +19,26 @@ Here is the pattern we will use to program the Arduino :
 #include <avr/io.h>
 #include <util/delay.h>
 
-void setup(void)
-{
-}
+void setup(void) {}
 
 int main(void)
 {
-        setup(); // you should also implement the setup
-        while(1)
-        {
-          // functionality here
-          _delay_ms(1000);// you can change this number
-        }
+  setup();
+  while(1)
+  {
+    // Business code goes here
+    _delay_ms(1000);
+  }
 }
 ```
 
-The program to embed on the board implements an infinite loop, where the main behavior will be called. The `setup` procedure is used to initialize the board, //e.g//, specify which pin is used as input or output.
+The program to embed on the board implements an infinite loop, where the main behavior will be called. The `setup` procedure is used to initialize the board, //e.g.//, specify which pin is used as input or output.
 
+### Controlling the LED
 
-### Blink a led (or control a wire)
-
-To switch a led on or off on a arduino, we need to
+To switch a led on or off on a Arduino, we need to
 * configure the port/pin where the led is connected into
-  _reading mode_.
+  _reading mode_ (in the setup procedure)
 * write a 0 (off) or a 1 (on) into the same port when required.
 
 We give you the LED example, and here are some information:
@@ -52,6 +49,8 @@ We give you the LED example, and here are some information:
 * The instruction `PORTB ^= 0b00100000;` makes the led blink, as the xor
   operator permits to toggle the 5th bit from 0 to 1 or 1 to 0 each
   time we enter a different loop.
+
+
 
 ### Additional documentation
 
