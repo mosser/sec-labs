@@ -4,7 +4,7 @@
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
   * Version: 2017.09
-  *   * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step2)
+  * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step2)
   * Previous step: [Step #1](https://github.com/mosser/sec-labs/blob/master/lab_1/step_1.md)
 
 ## Objectives
