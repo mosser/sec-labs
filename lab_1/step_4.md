@@ -107,6 +107,7 @@ The generated code can be compiled like the previous one (the `output` directory
 
   * [The Visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern)
   * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Chapter 8: _Code Generation_)
+  * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Chapter 55: _Model aware code generation_)
 
 
   * Going to next step: [Step #5](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
