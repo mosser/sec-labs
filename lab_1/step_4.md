@@ -73,15 +73,40 @@ To generate the FSM code, we use the _Visitor_ design pattern. A Visitor is used
 
 For a meta-model element to be compatible with the visitor pattern, it must implements the `Visitable` interface. This is an invasive modification of the meta-model, but it actually help maintenance as to create a new visit, one simply extend a `Visitor` class and do not have to modify the meta-model again.
 
+The pattern relies on the double dispacth mechanism to _trick_ the java compiler. Each meta-model element `accept` an instance of a `Visitor`, and dispatch it to the `visit` method of the given visitor. Thanks to Java's overloaded method mechanism, the JVM selects the right method of the `Visitor`, _i.e._, the one with the right signature.
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/_code/step4/visitable.png" />
 </p>
 
+During the visit, one must not forget the _double dispatch_, and call the `accept` method on the visited meta-model element. Here is an example: when visiting a `State`, one must also visit the associated actions.
 
+```Java
+@Override public void visit(State state) {
+	// ...
+	for(Action action: state.getActions()) {
+		action.accept(this);
+	}
+	// ...
+}
+``` 
+
+In our example, we are using a _model aware_ code generation, as the `ToC` visitor ([code](https://github.com/mosser/sec-labs/blob/master/lab_1/_code/step4/src/main/java/io/github/mosser/arduinoml/ens/generator/ToC.java)) generates the code we were previously implementing by hand (each state is a function). A _model ignorant_ generation would target code from step 1 or 2.
+
+The generated code can be compiled like the previous one (the `output` directory contains the correct environment: C libs and makefile).
 
 ## Expected Work
 
+  * Modify the meta-model to introduce sensors used to transition from one state to another;
+    * Adapt the code generator to support such an expressiveness;
+  * Identify the right meta-model element to support the 7-segment display;
+    *  Adapt the code generator to support such an expressiveness; 
+
 
 ## Documentation & Bibliography
+
+  * [The Visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern)
+  * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Chapter 8: _Code Generation_)
+
 
   * Going to next step: [Step #5](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
