@@ -3,6 +3,7 @@
   * M2 IF, ENS Lyon
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
+  * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step1)
   * Version: 2017.09
 
 ## Objectives
