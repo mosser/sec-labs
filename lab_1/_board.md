@@ -11,6 +11,13 @@
   * The user should have the right to write on  the USB port :
 `usermod -aG dialout <username>`
 
+## Pre-install (other)
+
+  * Lustre will be installed with the help of a script
+  * Other (Linux) packages: `maven` (`antlr4` will be automatically
+  downloaded)
+  * Java 8 (openjdk)
+
 ### Some Arduino general information
 
 Arduino/Genuino cards are free cards build around a Atmel AVR

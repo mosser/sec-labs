@@ -10,6 +10,10 @@
 
 ## Objectives
 
+```
+apt-get install maven
+```
+
 ## Documentation & Bibliography
 
 ## The LED example

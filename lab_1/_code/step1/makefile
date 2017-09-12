@@ -64,7 +64,7 @@ $(TARGET).hex: $(TARGET).elf
 	avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" --change-section-lma .eeprom=0 -O ihex $(TARGET).elf eeprom.hex
 
 upload: $(TARGET).hex
-	stty -F $(TERM) hupcl # reset
+	stty $(STTY_OPT) $(TERM) hupcl # reset
 	$(DUDE) $(PGMERISP) -U flash:w:$(TARGET).hex
 
 size: $(TARGET).elf

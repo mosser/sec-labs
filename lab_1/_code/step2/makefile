@@ -66,7 +66,6 @@ $(TARGET).hex: $(TARGET).elf
 
 upload: $(TARGET).hex
 	stty $(STTY_OPT) $(TERM) hupcl # reset
-#	$(DUDE) $(PGMER) -U flash:w:$(TARGET).hex
 	$(DUDE) $(PGMERISP) -U flash:w:$(TARGET).hex
 
 size: $(TARGET).elf
