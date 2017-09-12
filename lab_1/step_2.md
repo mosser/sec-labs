@@ -8,7 +8,7 @@
 
 ## Objectives
 
-  1. Goes from plain C to library
+  1. Goes from plain C to library;
   2. Use the Arduino C/C++ library to code the feature;
   3. Abstracting low level I/O call through function calls.
 
