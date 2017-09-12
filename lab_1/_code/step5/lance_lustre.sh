@@ -83,7 +83,7 @@ Some Examples
    # Compile (see the provided makefile)
 ############################################################
 For the arduino led
-   cd $(pwd)/Arduino7seg
+   cd $(pwd)/LustreArduino
    make all upload
 ############################################################
 If you quit this shell, you quit the Lustre environment.
