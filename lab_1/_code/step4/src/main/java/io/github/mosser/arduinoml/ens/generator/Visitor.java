@@ -2,9 +2,6 @@ package io.github.mosser.arduinoml.ens.generator;
 
 import io.github.mosser.arduinoml.ens.model.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public abstract class Visitor<T> {
 
 	public abstract void visit(App app);

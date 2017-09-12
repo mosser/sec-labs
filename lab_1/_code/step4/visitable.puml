@@ -1,0 +1,62 @@
+@startuml
+
+interface Visitable {
+ + {abstract} void accept(v: Visitor)
+}
+
+class App {
+  + void accept(v: Visitor) { v.visit(this); }
+}
+class Actuator {
+  + void accept(v: Visitor) { v.visit(this); }
+}
+
+class State {
+  + void accept(v: Visitor) { v.visit(this); }
+ }
+
+class Action {
+  + void accept(v: Visitor) { v.visit(this); }
+}
+
+abstract class Visitor {
+  + {abstract} void visit(App a);
+  + {abstract} void visit(State s);
+  + {abstract} void visit(Action a);
+  + {abstract} void visit(Actuator a);
+}
+
+class ToC {
+  + void visit(App a) {...} ;
+  + void visit(State s) {...};
+  + void visit(Action a) {...};
+  + void visit(Actuator a) {...};
+}
+
+class ToXXX {
+  + void visit(App a) {...} ;
+  + void visit(State s) {...};
+  + void visit(Action a) {...};
+  + void visit(Actuator a) {...};
+}
+
+
+Visitable <|-- App
+Visitable <|-- Actuator
+Visitable <|-- State
+Visitable <|-- Action
+
+Visitor <|-- ToC
+Visitor <|-- ToXXX
+Visitable .. Visitor
+
+App *-->  State
+App *-->  Actuator
+State -->  State
+State *--> Action
+Action -->  Actuator
+
+
+note "The Visitor Pattern separates the model (left part)\nfrom its visit (right part). It requires an invasive\nmodifcation of the model (implementing Visitable)\nbut new visits can be added by extending Visitor." as N1
+
+@enduml
