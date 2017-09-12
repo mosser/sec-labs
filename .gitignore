@@ -1,0 +1,17 @@
+*.exe
+*.o
+*.so
+*.hex
+*.elf
+
+#automatically produced Lustre files
+*.ec
+*.oc
+*.atg
+*_loop.c
+
+*.log
+*~
+
+lab_1/_code/step5/lustre-v4-III-ca-linux64
+lab_1/_code/step5/lustre-v4-III-ca-linux64.tgz
