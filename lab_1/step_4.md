@@ -69,11 +69,14 @@ theApp.setInitial(on);
 
 ### Code Generation
 
-To generate the FSM code, we use the _Visitor_ design pattern. A Visitor is used to walk through a given model, externalising the behaviour associated to such a visit. Using this pattern, it is possible to implement several visitors for the same meta-model, meaning here different code generation for example.
+To generate the FSM code, we use the _Visitor_ design pattern. A
+Visitor is used to walk through a given model, externalising the
+behaviour associated to such a visit. Using this pattern, it is
+possible to implement several visitors for the same meta-model, for different code generations for example.
 
-For a meta-model element to be compatible with the visitor pattern, it must implements the `Visitable` interface. This is an invasive modification of the meta-model, but it actually help maintenance as to create a new visit, one simply extend a `Visitor` class and do not have to modify the meta-model again.
+For a meta-model element to be compatible with the visitor pattern, it should implement the `Visitable` interface. This is an invasive modification of the meta-model, but it actually helps maintenance as to create a new visit, one simply extend a `Visitor` class and do not have to modify the meta-model again.
 
-The pattern relies on the double dispacth mechanism to _trick_ the java compiler. Each meta-model element `accept` an instance of a `Visitor`, and dispatch it to the `visit` method of the given visitor. Thanks to Java's overloaded method mechanism, the JVM selects the right method of the `Visitor`, _i.e._, the one with the right signature.
+The pattern relies on the double dispatch mechanism to _trick_ the java compiler. Each meta-model element `accept`s an instance of a `Visitor`, and dispatchs it to the `visit` method of the given visitor. Thanks to Java's overloading method mechanism, the JVM selects the right method of the `Visitor`, _i.e._, the one with the right signature.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/_code/step4/visitable.png" />
