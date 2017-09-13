@@ -77,10 +77,10 @@ As we are defining a set of projections, building the language automatically upd
 
 ### Specifying constraints
 
-Constraints are specified as logical expressions evaluated on concept instances. For example, to specify that an app name must start by a lower case character, one can specify the following constraint on the `App` concept.
+Constraints are specified as logical expressions evaluated on concept instances. For example, to specify an invariant stating that a pin associated to an actuator must be in [1,13], we associated a logical check on the `Actuator` concept.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/6_constraint_name.png" />
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/6_constraint_pin.png" />
 </p>
 
 
@@ -92,9 +92,25 @@ A more interesting constraints is the unique property associated to the state na
 
 Constraints are _hard_ properties. One can define more _soft_ guidelines. For example, a single initial state should be defined in the FSM. This is done thanks to a _checking rule_ in the type system definition.
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/8_check_unique.png" />
+</p>
 
 ### Controlling Scope
+
+Concept instances are linked together at the global level, as it is the default scope in MPS. As a consequence, if one create a second App named `led2` in the sandbox solution, it is possible to refer to actuators or states defined in `led2` inside the `led` application.
+
+MPS provides scoping mechanisms to support this task. To state that the `State` concept must not use the default global scope but an home-made one, we add a constraint to the `State` stating that when looking to fill the `next` reference with a `State`, it must inherit it from something defined in its containment hierarchy.
+ 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/9_scope_inherit.png" />
+</p>
+
+We use the `App` concept as our scope provider (it must then implements the `ScopeProvider` interface in addition to the `INamedConcept` one). We create a behaviour associated to the `App` concept, and override (use the CTRL-O shortcut to open a list of overridable methods) the `getScope` method. The implementation is straightforward: if asking for a `State`, we return all the states defined in the App. We do something similar for the actuators, and return `null` when asked for something else.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/10_behavior.png" />
+</p>
 
 ### Generating code
 
@@ -113,5 +129,6 @@ Constraints are _hard_ properties. One can define more _soft_ guidelines. For ex
     * Gemoc Studio
     * ...
   * [MPS documentation](https://confluence.jetbrains.com/display/MPSD20172/MPS+User%27s+Guide) 
+    * [Calculator tutorial](https://www.jetbrains.com/help/mps/mps-calculator-language-tutorial.html) 
 
   * Going to next step: _That's all folks!_
