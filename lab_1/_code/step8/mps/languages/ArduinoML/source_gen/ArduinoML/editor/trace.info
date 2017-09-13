@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <root>
+    <file name="Action_SubstituteMenu.java">
+      <unit at="40,0,58,0" name="ArduinoML.editor.Action_SubstituteMenu$SMP_ReferenceScope_g3c1ep_a" />
+      <unit at="18,0,59,0" name="ArduinoML.editor.Action_SubstituteMenu" />
+    </file>
+    <file name="EditorAspectDescriptorImpl.java">
+      <unit at="15,0,34,0" name="ArduinoML.editor.EditorAspectDescriptorImpl" />
+    </file>
+    <file name="State_SubstituteMenu.java">
+      <unit at="40,0,58,0" name="ArduinoML.editor.State_SubstituteMenu$SMP_ReferenceScope_9xz71f_a" />
+      <unit at="18,0,59,0" name="ArduinoML.editor.State_SubstituteMenu" />
+    </file>
+  </root>
+</debug-info>
+
