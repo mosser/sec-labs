@@ -35,7 +35,7 @@ Each concept of the ArduinoML abstract syntax tree is modelled as a concept in M
     * References are used to link an element to another one.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/1_concepts.png" />
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/2_concepts.png" />
 </p>
 
 Right-click on the project name and select `Make` to synchronise the language with the other solutions (and do this operation each time the tool underlines your models stating that "_generation is required_").
@@ -72,9 +72,15 @@ One must notice that the automatic completion is mandatory (using CRTL-space) to
 As we are defining a set of projections, building the language automatically update the `LED` model we defined previously.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/5_editorpng" />
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/5_editor.png" />
 </p>
 
+### Specifying constraints
+
+
+### Controlling Scope
+
+### Generating code
 
 ## Expected Work
 
