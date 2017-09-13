@@ -77,6 +77,22 @@ As we are defining a set of projections, building the language automatically upd
 
 ### Specifying constraints
 
+Constraints are specified as logical expressions evaluated on concept instances. For example, to specify that an app name must start by a lower case character, one can specify the following constraint on the `App` concept.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/6_constraint_name.png" />
+</p>
+
+
+A more interesting constraints is the unique property associated to the state names. To implement it, we add a constraints that looks inside the state parent node and check for other states with the very same name
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/7_name.png" />
+</p>
+
+Constraints are _hard_ properties. One can define more _soft_ guidelines. For example, a single initial state should be defined in the FSM. This is done thanks to a _checking rule_ in the type system definition.
+
+
 
 ### Controlling Scope
 
