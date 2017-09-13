@@ -114,6 +114,19 @@ We use the `App` concept as our scope provider (it must then implements the `Sco
  
 ### Generating code
 
+MPS supports a template based generation mechanism named _TextGen_. It also supports language composition mechanisms, which is more expressive but also more complex. In this lab, we will rely on the simple TextGen.
+
+For each concept, we define a `TextGenComponent` describing how the concept must be projected into plain text. For example, the actuator concept is projected by declaring an integer variable named like the actuator and containing the PIN number. We use the `append` keyword to add text to the generation buffer.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/11_textgen_actuator.png" />
+</p>
+
+A root concept will also define the generated filename and extension. When appending a model element, TextGen will recursively call the associated template. The system can automatically iterates on a collection of objects, using the `$list` keyword.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/12_textgen_app.png" />
+</p>
 
 
 ## Expected Work

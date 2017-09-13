@@ -73,18 +73,12 @@
         <child id="45307784116711884" name="filename" index="29tGrW" />
         <child id="1233749296504" name="textGenBlock" index="11c4hB" />
         <child id="7991274449437422201" name="extension" index="33IsuW" />
-        <child id="3147320813467893228" name="layout" index="3znZDQ" />
       </concept>
       <concept id="1233748055915" name="jetbrains.mps.lang.textGen.structure.NodeParameter" flags="nn" index="117lpO" />
       <concept id="1233749247888" name="jetbrains.mps.lang.textGen.structure.GenerateTextDeclaration" flags="in" index="11bSqf" />
       <concept id="1233920501193" name="jetbrains.mps.lang.textGen.structure.IndentBufferOperation" flags="nn" index="1bpajm" />
       <concept id="1236188139846" name="jetbrains.mps.lang.textGen.structure.WithIndentOperation" flags="nn" index="3izx1p">
         <child id="1236188238861" name="list" index="3izTki" />
-      </concept>
-      <concept id="3147320813467893194" name="jetbrains.mps.lang.textGen.structure.LayoutPart" flags="ng" index="3znZDg" />
-      <concept id="3147320813467893193" name="jetbrains.mps.lang.textGen.structure.TextUnitLayout" flags="ng" index="3znZDj">
-        <reference id="3147320813467893197" name="active" index="3znZDn" />
-        <child id="3147320813467893195" name="parts" index="3znZDh" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -114,15 +108,6 @@
   </registry>
   <node concept="WtQ9Q" id="1BEthYYyHkZ">
     <ref role="WuzLi" to="bt66:1VAgMjDrKZ1" resolve="App" />
-    <node concept="3znZDj" id="1BEthYYyHli" role="3znZDQ">
-      <ref role="3znZDn" node="1BEthYYyHlo" resolve="BODY" />
-      <node concept="3znZDg" id="1BEthYYyHlj" role="3znZDh">
-        <property role="TrG5h" value="HEADER" />
-      </node>
-      <node concept="3znZDg" id="1BEthYYyHlo" role="3znZDh">
-        <property role="TrG5h" value="BODY" />
-      </node>
-    </node>
     <node concept="11bSqf" id="1BEthYYyJyh" role="11c4hB">
       <node concept="3clFbS" id="1BEthYYyJyi" role="2VODD2">
         <node concept="lc7rE" id="1BEthYYz7US" role="3cqZAp">
