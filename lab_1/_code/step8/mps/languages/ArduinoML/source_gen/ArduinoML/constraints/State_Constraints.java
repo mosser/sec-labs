@@ -16,6 +16,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
+import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
+import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.scope.Scope;
+import jetbrains.mps.smodel.IOperationContext;
+import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
+import jetbrains.mps.scope.EmptyScope;
+import jetbrains.mps.smodel.SNodePointer;
 
 public class State_Constraints extends BaseConstraintsDescriptor {
   public State_Constraints() {
@@ -25,23 +37,52 @@ public class State_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, 0x1ee64324e970156aL, "isInitial"), new BasePropertyConstraintsDescriptor(MetaIdFactory.propId(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, 0x1ee64324e970156aL), this) {
+    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new BasePropertyConstraintsDescriptor(MetaIdFactory.propId(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L), this) {
       @Override
       public boolean hasOwnValidator() {
         return true;
       }
       @Override
-      public boolean validateValue(SNode node, String propertyValue) {
-        String propertyName = "isInitial";
+      public boolean validateValue(SNode node, final String propertyValue) {
+        String propertyName = "name";
         return ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), MetaAdapterFactory.getConcept(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc1L, "ArduinoML.structure.App")), MetaAdapterFactory.getContainmentLink(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc1L, 0x1ee64324e96f0fd2L, "states"))).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return eq_ptaftw_a0a0a0a0a0a0b0b0a1a0b0c(SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, 0x1ee64324e970156aL, "isInitial")), true);
+            return eq_ptaftw_a0a0a0a0a0a0b0b0a1a0b0c(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), (SPropertyOperations.getString(propertyValue)));
           }
         }).count() <= 1;
       }
     });
     return properties;
   }
+  @Override
+  protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
+    Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
+    references.put(MetaAdapterFactory.getReferenceLink(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, 0x1ee64324e96f0fddL, "next"), new BaseReferenceConstraintsDescriptor(MetaIdFactory.refId(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, 0x1ee64324e96f0fddL), this) {
+      @Override
+      public boolean hasOwnScopeProvider() {
+        return true;
+      }
+      @Nullable
+      @Override
+      public ReferenceScopeProvider getScopeProvider() {
+        return new BaseScopeProvider() {
+          @Override
+          public SNodeReference getSearchScopeValidatorNode() {
+            return breakingNode_ptaftw_a0a0a0a0a1a0b0a1a3;
+          }
+          @Override
+          public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
+            {
+              Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), MetaAdapterFactory.getConcept(0x6d84bad7eb044249L, 0x8d80c9157947c3f2L, 0x1ee64324e96f0fc4L, "ArduinoML.structure.State"));
+              return (scope == null ? new EmptyScope() : scope);
+            }
+          }
+        };
+      }
+    });
+    return references;
+  }
+  private static SNodePointer breakingNode_ptaftw_a0a0a0a0a1a0b0a1a3 = new SNodePointer("r:34842474-2b6b-4ec3-86bc-44e75c23a1b0(ArduinoML.constraints)", "2226540891596010633");
   private static boolean eq_ptaftw_a0a0a0a0a0a0b0b0a1a0b0c(Object a, Object b) {
     return (a != null ? a.equals(b) : a == b);
   }

@@ -17,7 +17,7 @@
       <unit at="10,0,34,0" name="ArduinoML.structure.LanguageConceptSwitch" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <unit at="14,0,86,0" name="ArduinoML.structure.StructureAspectDescriptor" />
+      <unit at="14,0,88,0" name="ArduinoML.structure.StructureAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:95dc3936-047b-4df0-883d-ba757a2402dd(ArduinoML.structure)/2226540891595542472">

@@ -29,7 +29,7 @@ public class App_Constraints extends BaseConstraintsDescriptor {
       @Override
       public boolean validateValue(SNode node, String propertyValue) {
         String propertyName = "name";
-        return (SPropertyOperations.getString(propertyValue)).matches("[a-z]*");
+        return (SPropertyOperations.getString(propertyValue)).matches("[a-z][a-zA-Z0-9]*");
       }
     });
     return properties;

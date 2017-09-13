@@ -111,8 +111,10 @@ We use the `App` concept as our scope provider (it must then implements the `Sco
 <p align="center">
   <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/10_behavior.png" />
 </p>
-
+ 
 ### Generating code
+
+
 
 ## Expected Work
 
