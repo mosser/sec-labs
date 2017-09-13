@@ -10,8 +10,8 @@
 ### Phase #1: ArduinoML (37, 38, 39)
 
   - Week 37:
-    - Thursday: Intro to MDE & DSLs (SM)
-    - Friday: Implementing a DSL (SM) + Lab #1
+    - Thursday: [Intro to MDE & DSLs](https://github.com/mosser/sec-labs/raw/master/lectures/37_1_MDE_DSL.pdf) (SM)
+    - Friday: [Implementing a DSL](https://github.com/mosser/sec-labs/raw/master/lectures/37_2_Implem_DSL.pdf) (SM) + Lab #1
   - Week 38:
      - Thursday: Lab #1
      - Friday: Lab #1 continued (1h30) + V&V (1h30, LG)
