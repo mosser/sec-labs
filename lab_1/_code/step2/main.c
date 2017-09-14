@@ -50,7 +50,7 @@ void displayDigit(int digit)
   turnOff();
   //Conditions for displaying segment a
   if(digit!=1 && digit != 4)
-    digitalWrite(a,HIGH); // change into LOW for Common Anode
+    digitalWrite(a,LOW); // change into HIGH for common cathode
   // TODO : complete
 }
 
