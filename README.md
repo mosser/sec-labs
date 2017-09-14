@@ -44,3 +44,7 @@
 
   * 50%: Lab #2 delivery (code + report)
   * 50%: Bibliographic study (paper + presentation)
+  
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lectures/37_0_teaser.jpg" />
+</p>
