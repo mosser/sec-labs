@@ -73,7 +73,7 @@ press the button, then it resets and continue to count from 0.
   g on digital 7, according to the preceding numbering. For instance,
   for out setting (common anode, vertical):
 
-![Arduino Uno + 7 seg Common Anode Vertical](figs/7SegmentAC_verticalbb.png)
+![Arduino Uno + 7 seg Common Anode Vertical](figs/7SegmentAC_vertical_bb.png)
 
 **Warning, the 7 segment displays should be connected though resistors
 (from 220 to 400 ohm)**
