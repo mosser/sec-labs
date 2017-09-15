@@ -40,7 +40,7 @@ void turnOff() //turn off the 7seg (CC)
 {
   int i;
   for (i = a; i <= g; i++){ // this could be prettier
-    digitalWrite(i,LOW); // change into HIGH for common anode
+    digitalWrite(i,HIGH); // change into HIGH for common anode
   }
 }
 
