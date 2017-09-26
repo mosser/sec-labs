@@ -14,7 +14,7 @@
     - Friday: [Implementing a DSL](https://github.com/mosser/sec-labs/raw/master/lectures/37_2_Implem_DSL.pdf) (SM) + Lab #1
   - Week 38:
      - Thursday: Lab #1
-     - Friday: Lab #1 continued (1h30) + V&V (1h30, LG)
+     - Friday: Lab #1 continued (1h30) + [V&V](https://github.com/mosser/sec-labs/blob/master/lectures/38_Lustre.pdf) (1h30, LG)
   - Week 39: Unsupervised lab session
     - Lab delivery expected at the end of the week (Sunday)
 
