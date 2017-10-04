@@ -21,7 +21,7 @@
 ### Phase #2: Workflow engine (40, 41, 42)
 
   - Week 40:
-    - Thursday: [Model composition]((https://github.com/mosser/sec-labs/raw/master/lectures/40_Software_Composition.pdf)) (SM), Discussions about deliverable #1 & Lab #2
+    - Thursday: [Model composition](https://github.com/mosser/sec-labs/raw/master/lectures/40_Software_Composition.pdf) (SM), Discussions about deliverable #1 & Lab #2
     - Friday: Lab #2
   - Week 41:
     - Friday: Advanced code generation (LG) + Lab #2 continued
