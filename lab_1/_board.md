@@ -59,19 +59,21 @@ The led changes its state (on/off) every time the button is pressed.
 The seven segment display numbers from 0 to 9 then 0, and so one, with a frequency of 1Hz. Of the user
 press the button, then it resets and continue to count from 0.
 
-* The seven segment displays can be "common cathode" or "common anode":
 
 ![Expected behavior](figs/expected_behavior_cr10.png)
 
+#### Arduino/7seg
 
-![7 seg Common Cathode interface](figs/numerotation_7segvertical_CC.png)
-![7 seg Common Anode interface](figs/numerotation_7seghorizontal_AC.png)
+* The seven segment displays can be "common cathode" or "common anode"
+  (vertical common anode for us!)
+
+![7 seg Vertical Interface](figs/numerotation_7segvertical_CC.png)
 
 * 7 segment : a on digital 1 via resistor 220 ohm, b on digital 2, ...
-  g on digital 7, according to the preceeding numbering. For instance,
-  for the Comon Cathode setting:
+  g on digital 7, according to the preceding numbering. For instance,
+  for out setting (common anode, vertical):
 
-![Arduino Uno + 7 seg Common Cathode](figs/7SegmentCC_bb.png)
+![Arduino Uno + 7 seg Common Anode Vertical](figs/7SegmentAC_vertical_bb.png)
 
 **Warning, the 7 segment displays should be connected though resistors
 (from 220 to 400 ohm)**

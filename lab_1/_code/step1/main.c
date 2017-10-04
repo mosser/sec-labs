@@ -11,7 +11,7 @@ void init(void)
   DDRB |= 0b00100000;// Digital 13 "outputmode"
   // TODO : enable write for digital 1 to 7 (7seg)
   // TODO : initialize global state values 
-
+  DDRD |= 0b11111110;
 }
 
 
@@ -21,14 +21,14 @@ void change_led_state(){
 
 
 int get_reset_value(){ // on digital 10 ie bit 2
-  return 1; // TODO CHANGE HERE
+ return  PINB & 4; 
 }
 
 
 void display_7seg(int value){
   switch (value) {
-  case 0: //a,b,c,d,e,f should be on
-    PORTD = 0b01111110;
+  case 0: //a,b,c,d,e,f should be OFF (common anode)
+    PORTD = 0b10000001;
     break; //TODO : complete for other values.
   default:
     PORTD = 0b00000000; 
@@ -44,7 +44,7 @@ int main(void)
   init();
   while(1) //infinite loop
     {
-      // display_7seg(0); // uncomment to test the 7-seg when DDRD is configured
+      display_7seg(0); // uncomment to test the 7-seg when DDRD is configured
       change_led_state();
       _delay_ms(1000);     // 1Hz period
     }
