@@ -21,24 +21,24 @@
 ### Phase #2: Workflow engine (40, 41, 42)
 
   - Week 40:
-    - Thursday: Advanced code generation (LG), Modelling workflows (SM)
+    - Thursday: [Model composition]((https://github.com/mosser/sec-labs/raw/master/lectures/37_2_Implem_DSL.pdf)) (SM), Discussions about deliverable #1 & Lab #2
     - Friday: Lab #2
   - Week 41:
-    - Friday: Variability Modelling (SM) + Lab #2 continued
+    - Friday: Advanced code generation (LG) + Lab #2 continued
   - Week 42:
-    - Friday: Model composition (SM) + Lab #2 continued
+    - Friday: Variability Modelling (SM) + Lab #2 continued
 
 
 ## Lab Organisation
 
   * Lab #1: [ArduinoML](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
-  * Lab #2: [Workflow Language](https://github.com/mosser/sec-labs/blob/master/lab_2/README.md)
+  * Lab #2: [Sensor Data Simulation](https://github.com/mosser/sec-labs/blob/master/lab_2/README.md)
 
 ### Deliveries
 
   - Week #39: ArduinoML (feedback only)
-  - Week #44: Workflow (evaluated)
-  - Week #48: Bibliography Oral defense  
+  - Week #44: Sensor Data Simulation (evaluated)
+  - Week #48: Bibliography Oral defence  
 
 ## Evaluation
 

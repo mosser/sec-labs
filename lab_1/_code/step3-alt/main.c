@@ -1,50 +1,20 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <Arduino.h>
-#include <fsm.h>
+#include <counter.h>
+#include <led.h>
+#include <button.h>
 
 // ########## INITIALIZATION #############
 
-
-void init_led() { pinMode(13, OUTPUT); }
 void init_button() { pinMode(10, INPUT); }
 
 void setup() {
-  init_sevenSeg();
+  init_counter();
   init_led();
   init_button();
 }
 
-// ##### ELECTRONICS AND LOGICAL COMPONENTS
-
-// ## LED Helper
-boolean led_on = true;
-void change_state_led(){
-  if (led_on){ digitalWrite(13, LOW); } else { digitalWrite(13, HIGH); }
-  led_on = !led_on;
-}
-
-// #### 7 segment helper
-
-
-void displayDigit(int digit)
-{
-  turnOff();
-  if(digit!=1 && digit != 4)
-    digitalWrite(1,LOW);
-  if(digit != 5 && digit != 6)
-    digitalWrite(2,LOW);
-  if(digit !=2)
-    digitalWrite(3,LOW);
-  if(digit != 1 && digit !=4 && digit !=7)
-    digitalWrite(4,LOW);
-  if(digit == 2 || digit ==6 || digit == 8 || digit==0)
-    digitalWrite(5,LOW);
-  if(digit != 1 && digit !=2 && digit!=3 && digit !=7)
-    digitalWrite(6,LOW);
-  if (digit!=0 && digit!=1 && digit !=7)
-    digitalWrite(7,LOW);
-}
 
 // ###### Message FLAG framework
 
