@@ -39,6 +39,7 @@ grafana:
 To start the data collection back-end, we simply starts the composition of containers:
 
 ```
+$ cd lab_2/backend
 $ docker-compose up -d
 ```
 
@@ -93,9 +94,23 @@ $ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=sec" --
 
 ## Creating interactive dashboards
 
-Grafana is a dashboard engine, used to connect to the InfluxDB and display the stored time series.
+Grafana is a dashboard engine, used to connect to the InfluxDB and display the stored time series. The engine is exposed on port 3000, and use the `admin/admin` credentials by default.
 
 ### Create a data source
+
+We need to link Grafana to InfluxDB.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_2/backend/_screenshots/1_data_source.png" />
+</p>
+
+### Creating a Dashboard
+
+Select Dashboards, the New in the Grafana menu (top-left icon). Add a Grah in the empty space. Click on the title to get a contextual menu, and select Edit. The Metrics configuration panel allows one to configure which time series to display (_i.e., an InfluxDB query) using this widget.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_2/backend/_screenshots/2_config.png" />
+</p>
 
 
 
