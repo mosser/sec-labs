@@ -72,17 +72,7 @@ curl -i -XPOST 'http://localhost:8086/write?db=sec' --data-binary 'a_given_senso
 The following shell script push a random value to a given sensor, and sleep for 1 to 10 seconds before pushing the next value.
 
 ```bash
-SENSOR=a_given_sensor
-while :
-do 
-  VALUE=$RANDOM
-  STAMP=`date +%s000000000`
-  echo "sensor: $VALUE @$STAMP"
-  curl -s -i -XPOST 'http://localhost:8086/write?db=sec' --data-binary "$SENSOR value=$VALUE $STAMP"
-  T=$(( ( RANDOM % 10 )  + 1 ))
-  echo sleeping $T second(s) 
-  sleep $T
-done
+while :; do VALUE=$RANDOM; STAMP=`date +%s000000000`; echo "sensor: $VALUE @$STAMP"; curl -i -XPOST 'http://localhost:8086/write?db=sec' --data-binary "a_given_sensor value=$VALUE $STAMP"; T=$(( ( RANDOM % 10 )  + 1 )); echo sleep $T; sleep $T; done
 ```
 
 ### Retrieving data
