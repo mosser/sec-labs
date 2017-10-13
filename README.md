@@ -24,7 +24,7 @@
     - Thursday: [Model composition](https://github.com/mosser/sec-labs/raw/master/lectures/40_Software_Composition.pdf) (SM), Discussions about deliverable #1 & Lab #2
     - Friday: Lab #2
   - Week 41:
-    - Friday: Advanced code generation (LG) + Lab #2 continued
+    - Friday: Embedded DSLs in depht ([Reference example](https://www.infoq.com/presentations/groovy-dsl-mars)) + Lab #2 continued
   - Week 42:
     - Friday: Variability Modelling (SM) + Lab #2 continued
 
