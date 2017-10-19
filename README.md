@@ -42,7 +42,11 @@
       - Code: a `tar.gz` file, with a readme file + several example of how to use your langage
       - Delivery: email to Seb & Laure, with the following subject: "SEC / Lab #2 / Your name".
   - Bibliography Study:
-      - Report: Monday 4.12, 7PM. 5 pages max report of the selected papers. 
+      - Report: Monday 4.12, 7PM. 5 pages max report of the selected papers. Expected contents:
+          - Description of the selected research theme;
+          - Description of paper's contributions with respect to the theme;
+          - Zoom on one particular contribution;
+          - Critical analysis of the papers with respect to the theme.
   - Oral defense, Monday 11.12, 09:30-12:00:
       - 5 minutes: demonstration of Lab #2
       - 15 minutes: Papers synthesis presentation
