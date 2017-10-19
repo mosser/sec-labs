@@ -37,8 +37,16 @@
 ### Deliveries
 
   - Week #39: ArduinoML (feedback only)
-  - Week #44: Sensor Data Simulation (evaluated)
-  - Week #48: Bibliography Oral defence  
+  - Sensor Data Simulation, 4.12, 7PM
+      - Report: 5 pages max (pdf), describing the language and the design choices made in the language
+      - Code: a `tar.gz` file, with a readme file + several example of how to use your langage
+      - Delivery: email to Seb & Laure, with the following subject: "SEC / Lab #2 / Your name".
+  - Bibliography Study:
+      - Report: Monday 4.12, 7PM. 5 pages max report of the selected papers. 
+  - Oral defense, Monday 11.12, 09:30-12:00:
+      - 5 minutes: demonstration of Lab #2
+      - 15 minutes: Papers synthesis presentation
+      - 10 minutes: Q&A.
 
 ## Evaluation
 
