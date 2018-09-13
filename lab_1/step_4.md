@@ -92,7 +92,7 @@ During the visit, one must not forget the _double dispatch_, and call the `accep
 	}
 	// ...
 }
-``` 
+```
 
 In our example, we are using a _model aware_ code generation, as the `ToC` visitor ([code](https://github.com/mosser/sec-labs/blob/master/lab_1/_code/step4/src/main/java/io/github/mosser/arduinoml/ens/generator/ToC.java)) generates the code we were previously implementing by hand (each state is a function). A _model ignorant_ generation would target code from step 1 or 2.
 
@@ -103,8 +103,16 @@ The generated code can be compiled like the previous one (the `output` directory
   * Modify the meta-model to introduce sensors used to transition from one state to another;
     * Adapt the code generator to support such an expressiveness;
   * Identify the right meta-model element to support the 7-segment display;
-    *  Adapt the code generator to support such an expressiveness; 
+    *  Adapt the code generator to support such an expressiveness;
 
+## Feedback Questions
+
+  * What are the pros/cons associated to the meta-modeling approach? What is the cost of defining a meta-model? What is difficult in this activity?
+  * From the user point of view, what does it change? Is the approach usable for large apps?
+  * Consider the LED app and the counter one as two separate models. Is it possible to automate the creation of the final app based on these two models?
+  * What about the readability of the generated code compared to the previous one “by hand”? Its debugging capabilities ? Its extensiveness?
+  * Explain the interest of modeling in terms of genericity, functional
+property verification.
 
 ## Documentation & Bibliography
 

@@ -1,0 +1,35 @@
+const size=8;
+
+node XOR(a,b:bool) returns (Xor:bool);
+let
+	Xor = if a then not b else b;
+tel
+
+node P(const n: int; B: bool^n) returns (p:bool);
+let
+ p = with n=1 then B[0]
+      else XOR(B[n-1] , P(n-1,B[0..n-2]));
+tel
+
+node parity (input: bool^size) 
+returns (parity,done: bool);
+var b, todo: bool^size;
+let
+   b[0..(size-2)] = input[0..(size-2)] -> 
+                              pre(b[1..(size-1)]);
+   b[size-1] = input[size-1] -> false;
+   todo[0..(size-2)] = false^(size-1) -> 
+                              pre(todo[1..(size-1)]);
+   todo[size-1] = true -> false;
+   done = todo[0];
+   parity = b[0] -> XOR(pre(parity) , b[0]);
+tel
+
+node verif_parity (input: bool^size)
+returns(ok: bool);
+var comb, seq, done: bool;
+let
+   ok = not done or (comb = seq);
+   comb =  P(size,input) -> pre(comb);
+  (seq,done) = parity(input);
+tel

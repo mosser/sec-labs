@@ -1,0 +1,37 @@
+LSRC = ./lustre_src
+CSRC = ./c_src
+OBJDIR = ./obj
+
+EC2OC = ec2oc -v -demand -oc5
+OCC = poc
+
+CC = gcc
+CFLAGS = -c -I$(CSRC) -I$(OBJDIR)
+LFLAGS = -O2 -lcurses
+
+OBJS = \
+	$(OBJDIR)/New_Watch.o \
+	$(OBJDIR)/New_Watch_ext_const.o \
+	$(OBJDIR)/New_Watch_ext_func.o \
+	$(OBJDIR)/New_Watch_main.o
+
+all : watch
+
+watch : $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o watch
+
+$(OBJDIR)/New_Watch.c : $(OBJDIR)/New_Watch.oc
+	$(OCC) $(OBJDIR)/New_Watch.oc -B $(OBJDIR)/New_Watch.c
+
+$(OBJDIR)/New_Watch.oc : $(LSRC)/New_Watch.lus
+	lus2ec $(LSRC)/New_Watch.lus New_Watch -o $(OBJDIR)/New_Watch.ec
+	$(EC2OC) $(OBJDIR)/New_Watch.ec -o $(OBJDIR)/New_Watch.oc
+
+$(OBJDIR)/New_Watch.o : $(OBJDIR)/New_Watch.c
+	$(CC) $(CFLAGS) $(OBJDIR)/New_Watch.c -o $(OBJDIR)/New_Watch.o
+
+$(OBJDIR)/%.o : $(CSRC)/%.c
+	$(CC) $(CFLAGS) $(CSRC)/$*.c -o $(OBJDIR)/$*.o
+
+clean :
+	/bin/rm $(OBJDIR)/* watch

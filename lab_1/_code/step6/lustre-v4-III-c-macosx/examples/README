@@ -1,0 +1,18 @@
+Here are some examples of Lustre programs (see README files in each directory):
+
+minus contains a very small verification program, together with an
+      example of session. It may be the first example to try.
+
+occ-watch is the complete program of a digital watch, with its interface
+      in C. A Makefile builds the whole program.
+		This version needs the compiler occ, wich is part of the
+		esterel distribution (http://www-sop.inria.fr/meije/esterel/)
+
+watch is the complete program of a digital watch, with a C interface
+		suitable for the compilers provided in the lustre distribution
+		(either lus2oc+poc or lus2ec+ec2c) 
+
+uturn contains a complete verification program for the example illustrating
+      our paper in SIGSOFT'91.
+
+parity illustrates the use of arrays and recursive nodes.

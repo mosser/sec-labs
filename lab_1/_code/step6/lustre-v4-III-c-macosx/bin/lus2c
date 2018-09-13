@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+TOOL=`basename $0`
+VERSION=`ec2c -version`
+
+function USAGE {
+        echo "$TOOL version $VERSION"
+        echo "usage:"
+        echo "$TOOL <file.lus> <node> [<options>]"
+        ec2c -options 2>&1
+}
+
+if [ $# -lt 2 ];
+then
+        USAGE
+        exit 1
+fi
+SRC=$1
+NODE=$2
+shift
+shift
+
+lus2ec $SRC $NODE
+ERR=$?
+if [ $ERR != 0 ];
+then
+        echo "ERROR: lus2ec returned $ERR, compilation aborted"
+        exit 1
+fi
+echo "--ec2c $NODE.ec $*"
+ec2c $NODE.ec $*
+ERR=$?
+if [ $ERR != 0 ];
+then
+        echo "ERROR: ec2c returned $ERR, compilation aborted"
+        exit 1
+fi
+

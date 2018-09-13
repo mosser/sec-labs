@@ -1,0 +1,100 @@
+Modified:  Jan  9 1995
+Modified:  Jan  1 1996
+Modified:  Jul  1 1997
+Modified:  Oct 22 1999 
+
+A very small example of verification program:
+
+It intends to prove that the general switch "TWO_STATES"
+
+   . behaves as the two-buttons switch "TWO_BUTTONS", when called
+     with exclusive parameters
+   
+   . behaves as the one-button switch "ONE_BUTTON", when called 
+     with equal parameters
+
+The verification program calls 
+
+  . TWO_STATES and TWO_BUTTONS with the same parameters, "asserted" to be 
+    exclusive.
+
+  . TWO_STATES with both parameters equal to the unique parameter of
+    ONE_BUTTON.
+
+Its output is true whenever, on one hand, the outputs of TWO_BUTTONS
+and the first instance of  TWO_STATES are equal, and on the other hand, 
+the outputs of ONE_BUTTON and the second instance of TWO_STATES are equal.
+
+There are 3 ways of running this example:
+
+   -1- Genarate full automaton then minimize it :
+
+		First call the automaton generator, by typing
+   
+          lustre minus.lus minus (-v)
+
+     NOTE:
+     The "-v(erbose)" options prints information during the compilation.
+
+     You get an oc-file minus.oc, which can be put in readable form by typing
+    
+          poc minus.oc
+
+     The result, minus.c , is a program implementing an automaton with 5 
+     states, in each of which the output "_ok" is set to true. This means 
+     that the output of the program cannot be false, during any execution 
+     of the program.
+
+     You can also minimize the minus.oc program typing
+
+          ocmin minus.oc (-v)
+
+     The result is a program minus_min.oc which have only one state.
+     Making this new program readable using 
+
+          poc minus_min.oc
+
+     The resulting automaton is minimal. It has only one state, looping on 
+     itself, and assigning "true" to "_ok".
+   
+     You can also type "make gen" 
+
+   -2- Genarate minimal automaton, by typing
+
+          lustre minus.lus minus -demand -v
+
+		You get an oc-file minus.oc, make it readable typing
+
+			poc minus.oc
+
+		The result has only one state, where the output is true.
+
+     You can also type "make genmin" 
+
+   -3- Use the verifier:
+
+           lesar minus.lus minus -v
+
+     which answers "TRUE PROPERTY".  You can also type "make Verif".
+
+     You can check that, if you remove the assertion
+
+         assert not(e1 and e2);
+
+     in the main node "minus", the property is no longer satisfied.
+     In that case, (because of the "-diag" option), lesar provides
+     the following diagnosis:
+
+             DIAGNOSIS:
+             --- TRANSITION 1 ---
+             init
+             --- TRANSITION 2 ---
+             e1 and e2
+             FALSE PROPERTY
+
+     which means that the erroneous state is reached if
+          init = true ,
+     at the first cycle and
+          e1 = e2 = true
+     at the second cycle.
+

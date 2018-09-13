@@ -1,0 +1,14 @@
+This example is the program illustrating the paper
+
+    Programming and verifying critical systems by means of the synchronous 
+    data-flow language Lustre, by Ch. Ratel, N. Halbwachs and P. Raymond,
+    published in Proc. ACM SIGSOFT'91 Conf. on Software for Critical Systems,
+    New-Orleans, December 91.
+
+The file "log_tmp.lus" contains a set of temporal operators of general usage.
+
+The verification can be done by typing
+
+      lesar ums_verif.lus UMS_verif -v
+      or make   
+

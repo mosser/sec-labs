@@ -1,0 +1,69 @@
+#!/bin/sh
+EXE=`basename $0`
+
+#echo $#
+
+if [ $# -lt 2 ] ; then
+  echo "Usage: $EXE file.lus node <options>"
+  exit
+fi
+
+name=`basename $1 .lus`
+node=$2
+shift
+shift
+
+ocargs=""
+atgargs=""
+while [ $# -gt 0 ]; do
+	#echo $1
+	case "$1" in
+		"-unctrl")
+			ocargs="$ocargs $1 $2"
+			shift
+		;;
+		"-bddpage")
+			ocargs="$ocargs $1 $2"
+			shift
+		;;
+		"-states")
+			ocargs="$ocargs $1 $2"
+			shift
+		;;
+		"-merge")
+			ocargs="$ocargs $1"
+			atgargs="$atgargs $1"
+		;;
+		"-v")
+			ocargs="$ocargs $1"
+			atgargs="$atgargs $1"
+		;;
+		"-vv")
+			ocargs="$ocargs $1"
+			atgargs="$atgargs $1"
+		;;
+		*)
+			atgargs="$atgargs $1"
+		;;
+	esac
+	shift
+done
+
+echo ocargs=$ocargs
+echo atgargs=$atgargs
+
+lustre ${name}.lus $node -oc2 -pure -S4 -causal -merge $ocargs
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+/bin/rm -f $node.ec
+ocmin $node.oc -v
+/bin/mv -f ${node}_min.oc $node.oc
+oc2atg $node.oc -o $node $atgargs
+ok=$?
+/bin/rm -f $node.oc
+if [ $ok -ne 0 ]; then 
+	echo "Something where wrong ..."
+else
+	echo "File $node.atg created"
+fi

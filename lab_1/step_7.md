@@ -3,81 +3,106 @@
   * M2 IF, ENS Lyon
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
-  * Version: 2017.09
+  * Version: 2018.09
   * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step7)
-  * Previous step: [Step #6](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
+
+  * Previous step: [Step #5](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
 
 ## Objectives
 
-  * Discover the principles associated to _Fluent APIs_;
-  * Embed a language inside another one.
+  1. Use a classical meta-compiler (antler) to define a grammar and implement a lexer/parser for our langage;
+  2. Leverage the `Listener` pattern to build a model from a given word
 
 ## The LED example
 
-Instead of writing a new langage, we decide here to _hack_ an existing one (_e.g._, Java). The idea of a fluent interface is to support the definition of a new language by leveraging the available syntax in the host language. For example, the following code is a valid Java code, but is also understandable with respect to our FSM concepts.
+For this example, we model the LED example using a textual syntax for the FSM
 
-```Java
-application("theLed")
-	.uses(actuator("led", 13))
-
-	.hasForState("on")
-		.setting("led").toHigh()
-		.goingTo("off")
-
-	.hasForState("off")
-		.initial()
-		.setting("led").toLow()
-		.goingTo("on")
-
-	.export("./output/fsm.h", "./output/main.c");
 ```
+application led {
 
-This approach relies on the definition of methods to support the fluent API. In our example, such elements are defined in the [`dsl`](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step7/src/main/java/io/github/mosser/arduinoml/ens/dsl) package. We use _static methods_ and _builders_ to support the API.
+    actuator led: 13
 
-### Static methods
+    -> off {
+        led is LOW
+        goto on
+    }
 
-The application builder is designed to hide its constructor, thus the only way to create an instance of the builder is to call the `application(name: String)` method it provides. The same trick is used for the `actuator` method, supporting a user-friendly way of instantiating an actuator.
-
-When creating an application, one import statically these methods (`import static AppBuilder.*`), and can use it directly in the code.
-
-```Java
-public static Actuator actuator(String name, int port) {
-	if(name.isEmpty() || !Character.isLowerCase(name.charAt(0)))
-		throw new IllegalArgumentException("Illegal brick name: ["+name+"]");
-	if(port < 1 || port > 13)
-		throw new IllegalArgumentException("Illegal brick port: ["+port+"]");
-	Actuator result = new Actuator();
-	result.setName(name);
-	result.setPin(port);
-	return result;
+    on {
+        led is HIGH
+        goto off
+    }
 }
 ```
 
-### Nested Builders
+### Modelling the grammar
 
-To control the way the API is used, we define intermediary object that expose the right interfaces. For example, inside a given state, calling the `setting` method yields an `InstructionBuilder` that only support the `toLow` or `toHigh` methods. When called, the method returns the parent `StateBuilder`, allowing one to add another instruction.
+The associated grammar is implemented using ANTLR, in the [`ArduinoML.g4`](https://github.com/mosser/sec-labs/blob/master/lab_1/_code/step6/src/main/antlr4/io/github/mosser/arduinoml/external/ArduinoML.g4) file.
+
+```antlr
+app         :   'application' name=IDENTIFIER '{' actuator+ state+ '}';
+actuator    :   'actuator' location ;
+location    :   id=IDENTIFIER ':' port=PORT_NUMBER;
+state       :   initial? name=IDENTIFIER '{'  action+ next '}';
+action      :   receiver=IDENTIFIER 'is' value=SIGNAL;
+next        :   'goto' target=IDENTIFIER ;
+initial     :   '->';
+```
+
+### Instantiating models
+
+When using maven to build the code, the `antlr` compiler is called on this grammar file, and generate the associated lexer and parser in `target/generated-sources/antlr4`. If you are using an IDE, do not forget to include this directory in your classpath.
+
+The antlr tool supports two patterns to interact with the DSL code: a classical visitor or the listener pattern. As the visitor was previously described, we use here the listener one. By extending `ArduinoMLBaseListener`, one can implement a listener for a word conform to the `ArduinoML` grammar. For each rule `R` declared in the grammar, the listener provides two methods:
+
+  * `enterR`: triggered each time the system enters in the `R` rule;
+  * `exitR`: triggered each time the system enters in the `R` rule.
+
+Using this pattern, we override several methods to implement a listener named [`ModelBuilder`](https://github.com/mosser/sec-labs/blob/master/lab_1/_code/step6/src/main/java/io/github/mosser/arduinoml/ens/compiler/ModelBuilder.java) that build instances of the previously defined meta-model (step 4). We rely on shared variable (_e.g._, a symbol table for states, the current application to build, the current state) to share information between method calls.
 
 ```Java
-// class StateBuilder
-public InstructionBuilder setting(String actuatorName) {
-	return new InstructionBuilder(this, actuatorName);
+private App theApp = null;
+private Map<String, State>    states  = new HashMap<>();
+private State currentState = null;
+
+// ...
+
+@Override public void enterState(ArduinoMLParser.StateContext ctx) {
+	State local = new State();
+	local.setName(ctx.name.getText());
+	this.currentState = local;
+	this.states.put(local.getName(), local); // Symbol table for states
 }
 
-// class InstructionBuilder
-InstructionBuilder(StateBuilder parent, String target) {
-	this.parent = parent;
-	Optional<Actuator> opt = parent.parent.findActuator(target);
-	Actuator act = opt.orElseThrow(() -> new IllegalArgumentException("Illegal actuator: ["+target+"]"));
-	local.setActuator(act);
+@Override public void exitState(ArduinoMLParser.StateContext ctx) {
+	this.theApp.getStates().add(this.currentState);
+	this.currentState = null;
 }
 
-public StateBuilder toHigh() {
-	local.setValue(SIGNAL.HIGH);
-	parent.local.getActions().add(this.local);
-	return parent;
-}    
-``` 
-Using this programming style, we have a direct control on the language syntax, and one can rely on the code completion mechanism to write in the created language. 
+//...
+```  
+
+### Calling the compiler
+
+To call the compiler (see the [`Main`](https://github.com/mosser/sec-labs/blob/master/lab_1/_code/step6/src/main/java/Main.java) class), we bind the lexer and parser together, and associate our ModelBuilder as a parse tree walker.
+
+```Java
+private static App buildModel(CharStream stream) {
+	ArduinoMLLexer    lexer   = new ArduinoMLLexer(stream);
+	lexer.removeErrorListeners();
+	lexer.addErrorListener(new StopErrorListener());
+
+	ArduinoMLParser   parser  = new ArduinoMLParser(new CommonTokenStream(lexer));
+	parser.removeErrorListeners();
+	parser.addErrorListener(new StopErrorListener());
+
+	ParseTreeWalker walker  = new ParseTreeWalker();
+	ModelBuilder      builder = new ModelBuilder();
+
+	// parser.app() is the entry point of the grammar
+	walker.walk(builder, parser.app());
+    return builder.retrieve();
+}
+```
 
 ## Expected Work
 
@@ -87,7 +112,8 @@ Using this programming style, we have a direct control on the language syntax, a
 
 ## Documentation & Bibliography
 
-  * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Part IV: _Internal DSL Topics_)
-  * [ArduinoML syntax Zoo](https://github.com/mosser/ArduinoML-kernel/tree/master/embeddeds) (Embedded section)
+  * [http://www.antlr.org/](http://www.antlr.org/)
+  * The definitive ANTLR4 reference, Terence Parr
+  * Language implementation patterns, Terence Parr
 
-  * Going to next step: [Step #8](https://github.com/mosser/sec-labs/blob/master/lab_1/step_8.md) 
+  * Going to next step: [Step #8](https://github.com/mosser/sec-labs/blob/master/lab_1/step_8.md)

@@ -41,6 +41,13 @@ void state_off() {
   * Identify the right computation model associated to the 7-segment display use case.
   * Implement it in `main.c` (states signature are declared in `fsm.h`)
 
+## Feedback Questions:
+
+  - Does introducing a convention solve the readability issue?
+  - How to extend an app with a new feature? Does the approach prevent one to perform invasive changes in the existing behavior to introduce a new one?
+  - How to extend the code so that to support new features, e.g.,
+memory-less tasks, state-full tasks, different frequencies?
+
 ## Documentation & Bibliography
 
   * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Chapter 7: _Alternative Computation Model_)

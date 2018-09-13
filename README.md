@@ -3,60 +3,98 @@
   * M2 IF, ENS Lyon
   * Sébastien Mosser (SM), Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord (LG), Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
-  * Version: 2017.09.11
+  * Version: 2018.09.13
 
 ## Course Outline
 
-### Phase #1: ArduinoML (37, 38, 39)
+Please read the paper published at `EduSymp'18` (workshop of the MODELS conference) that describe the course: [Practicing Domain-Specific Languages: From Code to Models](https://hal.archives-ouvertes.fr/hal-01865448/document), L. Gonnord and S. Mosser. 
 
-  - Week 37:
-    - Thursday: [Intro to MDE & DSLs](https://github.com/mosser/sec-labs/raw/master/lectures/37_1_MDE_DSL.pdf) (SM)
-    - Friday: [Implementing a DSL](https://github.com/mosser/sec-labs/raw/master/lectures/37_2_Implem_DSL.pdf) (SM) + Lab #1
+
+### Phase #1: ArduinoML as a sandbox (Padawan)
+
+  - Week 37: Friday, 1:30PM -> 5:30PM
+    - :book: Lecture (3h): Introduction to Model-driven Engineering & Domain-specific Languages (SM)
+    - :hammer: Lab (1h): Kickstarting the ArduinoML lab
+
   - Week 38:
-     - Thursday: Lab #1
-     - Friday: Lab #1 continued (1h30) + [V&V](https://github.com/mosser/sec-labs/blob/master/lectures/38_Lustre.pdf) (1h30, LG)
-  - Week 39: Unsupervised lab session
-    - Lab delivery expected at the end of the week (Sunday)
+    - _No Lecture_
+    - _Unsupervised lab_
 
-### Phase #2: Workflow engine (40, 41, 42)
+  - Week 39: Friday, 1:30PM -> 5:30PM
+    - :book: Lecture (2h): Implementing a DSL (SM)
+    - :hammer: Lab (2h): Presentation by students of their lab status (steps 1 -> 4) + lab work
 
   - Week 40:
-    - Thursday: [Model composition](https://github.com/mosser/sec-labs/raw/master/lectures/40_Software_Composition.pdf) (SM), Discussions about deliverable #1 & Lab #2
-    - Friday: Lab #2
-  - Week 41:
-    - Friday: Embedded DSLs in depth ([Reference example](https://www.infoq.com/presentations/groovy-dsl-mars)) + Lab #2 continued
+  - _No Lecture_
+  - _Unsupervised lab_
+
+  - Week 41: Friday, 1:30PM -> 5:30PM
+    - _No Lecture_
+    - :hammer: Lab (4h): Presentation by students of their lab status (steps 5 + one another according to student's tastes) + lab work
+
   - Week 42:
-    - Friday: [Variability Modelling](https://github.com/mosser/sec-labs/raw/master/lectures/42_SPL.pdf) (SM) + Lab #2 continued
+  - _No Lecture_
+  - _Unsupervised lab_
 
+  - Week 43: Friday, :alarm_clock: **8AM -> 10AM**
+    - :book: Lecture (1h): Software composition (SM)
+    - :mag_right: Evaluation (1h): Final presentations for the ArduinoML project
 
-## Lab Organisation
+### Phase #2: Sensor Simulation engine (Master)
 
-  * Lab #1: [ArduinoML](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
-  * Lab #2: [Sensor Data Simulation](https://github.com/mosser/sec-labs/blob/master/lab_2/README.md)
+  - Week 43: Friday, 1:30PM -> 4:30PM
+    - :book: Lecture (1h): Verification & Validation (LG)
+    - :hammer: Lab (2h): Kick-starting Sensor simulation lab
+
+  - Week 44: _Hollidays_
+
+  - Week 45:
+  - _No Lecture_
+  - _Unsupervised lab_
+
+  - Week 46: _No Lecture (Winter school: Data analysis and machine learning)_
+
+  - Week 47: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
+    - :book: Lecture (1h): Advanced Code Generation
+    - :hammer: Lab (2h): Lab status + Lab Work
+
+  - Week 48: _No Lecture (Winter school: Computer Virology)_
+
+  - Week 49: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
+    - :hammer: Lab (2h): Lab status + Lab Work
+    - :mag_right: Evaluation (1h): Intermediate project demonstration
+
+  - Week 50:
+    - _No Lecture_
+    - _Unsupervised lab_
+
+  - Week 51:
+    - _No Lecture_
+    - _Unsupervised lab_
+
+  - Week 52: _Hollidays_
+
+  - Week 1: _Hollidays_
+
+  - Week 2: Friday, :alarm_clock: **3:30PM-> 5:30PM** (SM remote from Montreal)
+    - :mag_right: Evaluation (2h): Project presentation + Paper presentation.
 
 ### Deliveries
 
-  - Week #39: ArduinoML (feedback only)
-  - Sensor Data Simulation, 4.12, 7PM
-      - Report: 5 pages max (pdf), describing the language and the design choices made in the language
-      - Code: a `tar.gz` file, with a readme file + several example of how to use your langage
-      - Delivery: email to Seb & Laure, with the following subject: "SEC / Lab #2 / Your name".
-  - Bibliography Study:
-      - Report: Monday 4.12, 7PM. 5 pages max report of the selected papers. Expected contents:
-          - Description of the selected research theme;
-          - Description of paper's contributions with respect to the theme;
-          - Zoom on one particular contribution;
-          - Critical analysis of the papers with respect to the theme.
-  - Oral defense, Monday 11.12, 09:30-12:00:
-      - 5 minutes: demonstration of Lab #2
-      - 15 minutes: Papers synthesis presentation
-      - 10 minutes: Q&A.
+  - Week43:
+    1. A file named `ArduinoML-lastname1-lastname2.tar.gz` containing:
+      - The code of the implemented steps (in separated sub-directories);
+      - A `Readme.md` file with answers to the steps feedback questions
+    2. The selected papers for the review assignment (individual).
+
+  - Week 51:
+    1.  A file named `SSL-lastname1-lastname2.tar.gz` containing:
+      - The code of the DSL defined in the project;
+      - Examples that uses the DSL to address the challenges of the project;
+      - A report `lastname1-lastname2.pdf` describing the abstract syntax of the language, your design choices, and the strengths and weaknesses of the language.
 
 ## Evaluation
 
-  * 50%: Lab #2 delivery (code + report)
-  * 50%: Bibliographic study (paper + presentation)
-  
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lectures/37_0_teaser.jpg" />
-</p>
+  - ArduinoML Lab: 20%
+  - Paper presentation: 40%
+  - Sensor Simulation Project: 40%

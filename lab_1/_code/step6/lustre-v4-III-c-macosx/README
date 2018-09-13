@@ -1,0 +1,36 @@
+
+Binary distribution of Lustre V4
+================================
+
+THE DISTRIBUTION CONTAINS 
+---------------------------
+
+   - doc: take a look at this directory first, in particular
+     to lv4_man.ps and tutorial.ps
+   - man: manual pages
+   - bin: all the tools
+   - examples: some examples
+   - luslib: some useful lustre programs 
+   - include/lib:
+
+FOR LINUCES ONLY
+----------------
+
+- third party tools are distributed "as it":
+  esterel v5 + atg
+
+INSTALLATION (for unix-like systems)
+------------------------------------
+
+- get the distribution, e.g. "lustre-v4-II.xx-yyyy.tgz"
+- Uncompress the distribution anywhere (e.g. /usr/local/)
+
+- (BA)SH USERS: Add these lines to your .(ba)shrc:
+
+export LUSTRE_INSTALL=/usr/local/lustre-v4-II.xx-yyyy
+source $LUSTRE_INSTALL/setenv.sh
+
+- CSH USERS: Add those lines to your .cshrc:
+
+setenv LUSTRE_INSTALL /usr/local/lustre-v4-II.xx-yyyy
+source $LUSTRE_INSTALL/setenv.csh

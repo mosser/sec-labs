@@ -1,0 +1,22 @@
+#!/bin/sh
+EXE=`basename $0`
+if test $# -lt 2
+then
+   echo "lesar/ecverif version `ecverif -version`"
+   echo "usage: $EXE <lustre file> <main node> [<options>]"
+   ecverif -options
+   echo
+   exit 1
+fi;
+FILE=$1
+MAIN=$2
+shift 
+shift
+lus2ec $FILE $MAIN
+res=$?
+if test $res -eq 0
+then
+	ecverif $MAIN.ec $* 
+else
+	exit $res
+fi

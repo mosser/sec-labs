@@ -56,12 +56,12 @@ Lustre is a language that was designed for safety critical systems
 (avionics, nuclear plants), in Grenoble, in the late 80s. Its
 industrial version Scade is still used by Airbus.
 
-* Have a look into the 
+* Have a look into the
 [Lustre V6 official webpage](http://www-verimag.imag.fr/Lustre-V6.html?lang=fr)
 We will use the V4 distribution but the language description is
 accurate in the V6 documentation.
 
-* Lustre Compilation Flow: 
+* Lustre Compilation Flow:
 ![Lustre compilation flow](figs/compil2.png)
 
 * The Lustre compiler comes with some other tools like a simulator, and

@@ -1,0 +1,37 @@
+Modified : Jan  9 1995
+Modified : Jul  1 1997
+
+
+A verification program illustrating the use of arrays and recursive nodes.
+The goal is to compare a combinatorial operator "P", computing the parity bit
+of a bit-string, to a sequential version "parity".
+
+The size of the bit-string is a constant of the program, here 8.
+
+The node XOR implements exclusive "or"
+
+The combinatorial parity-bit operator is recursive
+- applied to a bit-string of size 1, it returns the value of its unique bit.
+- applied to a bit-string of longer size n, it returns the exclusive "or" of 
+  the last bit of the string and the result of P applied to the n-1 first bits.
+
+The sequential parity-bit operator proceeds by shifting its parameter b. At 
+any cycle 
+  - the parity-bit is the exclusive "or" of its preceding value and the 
+    leftmost bit of b. 
+  - the array b is shifted to the left (and completed by "false" on the right)
+
+In order to know when the whole array has been processed, an auxiliary array
+"todo" is used. All its elements but the rightmost are initialized to false.
+It is shifted to the left at any cycle, until its only "true" element becomes 
+the leftmost. Then the variable "done" becomes true, and the parity-bit has 
+been computed.
+
+The verification program compares the result of the combinatorial operator 
+with the one of the sequential operator, when the computation of the last 
+one is terminated.
+
+The Makefile gives 3 ways for verification :
+	GenThenMin => generate full automaton then minimize 
+	GenMin => generate minimal automaton
+	Verif => use the verification tool

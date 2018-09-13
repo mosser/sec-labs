@@ -85,10 +85,18 @@ void display_7seg(int value){
 	//todo: implement the rest!
 }
 ```
+
 And use it to increment the 7 segment value each time you enter the
   loop. If the button is pressed, the 7-segment should reset
   to 0. Test.
 
 
+## Feedback questions
+
+  - What can we say about readability of this code? What are the skills required to write such a program?
+  - Regarding the application domain, could you characterize the expressivity?
+  The configurability of the code to change pins or behavior? Its debugging capabilities?
+  - Regarding the performance of the output code, what kind of parallelism is expressed by the use of the DDRx registers?
+  - What if we add additional tasks in the micro-controller code, with the same frequency? With a different frequency?
 
   * Going to next step: [Step #2](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)

@@ -1,0 +1,21 @@
+This directory contains the programs of the digital watch.
+
+The directory SRC contains the Lustre program.
+
+The directory Cprogs contains the interface programs, in C.
+
+Type make to build the program "watch",
+which takes as parameters 4 characters, corresponding to the 4 buttons of the 
+watch. For instance, typing "watch iokl" calls the watch with
+
+    . key "i" bound to upper left button
+    . key "o" bound to upper right button
+    . key "k" bound to lower left button
+    . key "l" bound to lower right button
+
+Type "q" to quit.
+
+By default, the base time is the 1/10 of second, the option -c set the
+base time to the 1/100 of second.
+
+WARNING:  This examople needs the occ code genarator.

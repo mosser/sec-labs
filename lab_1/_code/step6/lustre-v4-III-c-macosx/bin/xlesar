@@ -1,0 +1,11 @@
+#!/bin/sh 
+#
+# xlesar.tcl launcher
+# requires that wish is installed and in the path
+#
+
+XLESAR_PATH=$LUSTRE_INSTALL/tcl
+
+export XLESAR_PATH
+
+exec wish $XLESAR_PATH/xlesar.tcl $*

@@ -1,0 +1,61 @@
+node two_states(set,reset,init: bool) returns (state:bool);
+let
+	state= init -> if set and not pre(state) then true
+			else if reset and pre(state) then false
+			else pre(state);
+tel.
+
+node edge(X: bool) returns (edge : bool);
+let
+	edge = X -> X and not pre(X);
+tel.
+
+node implies(A,B:bool) returns (implies: bool);
+let implies = if A then B else true; tel.
+
+node after (A: bool) returns (X: bool);
+let
+	X = false -> pre(A or X);
+tel.
+
+node always_since (C,A: bool) returns (X: bool);
+let
+	X = 	if A then C
+			else if after(A) then C and pre(X)
+			else true;
+tel.
+
+node once_since (C,A: bool) returns (X: bool);
+let
+	X =	if A then C
+			else if after(A) then C or pre(X)
+			else true;
+tel.
+
+node always_from_to (C,A,B: bool) returns (X: bool);
+let
+	X = implies (after(A), always_since(C,A) or once_since(B,A));
+tel.
+
+node once_from_to (C,A,B: bool) returns (X: bool);
+let
+	X = implies (after(A) and B, once_since(C,A));
+tel.
+
+node alternating(A,B: bool) returns (X:bool);
+var A_forbiden, B_forbiden: bool;
+let
+	A_forbiden = false -> if pre(A) and not A then true
+			      else if pre(B) and not B then false	
+			           else pre(A_forbiden);
+	B_forbiden = true -> if pre(B) and not B then true
+			     else if pre(A) and not A then false	
+				  else pre(B_forbiden);
+	X = not(A and A_forbiden) and not(B and B_forbiden);
+tel.
+
+node not_between_and (A,B,C: bool) returns (X: bool);
+let
+
+	X = implies(C, not once_since(A,B)); 
+tel.

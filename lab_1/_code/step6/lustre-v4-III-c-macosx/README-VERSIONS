@@ -1,0 +1,15 @@
+Lustre-v4 distribution release 
+The current versions of the executables are :
+
+pollux  Version 2.4 (front-end)
+ec2oc   Version 4.6.25
+ocmin   Version 1.0 
+oc2atg  Version 0.4 
+poc     Version 1.0 
+ec2c    Version 0.67 
+lesar   Version 1.53 (ecverif)
+ecexe   Version 2.2 
+luciole Version  (simec)
+sim2chro    Version 4.0 alpha (X11)
+sim2chrogtk Version  (gtk2)
+xlesar  Version 1.53 

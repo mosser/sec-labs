@@ -54,4 +54,13 @@ void displayDigit(int digit)
 ```
 and use it in the main. Test it!
 
+
+## Feedback Questions
+
+  - Is the readability problem solved?
+  - What kind of parallelism can still be expressed?
+  - Who is the public targeted by this “language”?
+  - Is this language extensible enough to support new features?
+  - What is the price for the developer?
+
   * Going to next step: [Step #3](https://github.com/mosser/sec-labs/blob/master/lab_1/step_3.md)

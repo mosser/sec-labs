@@ -1,0 +1,29 @@
+#!/bin/sh
+
+EXE=`basename $0`
+
+if [ $# -lt 2 ] ; then
+  echo "Usage: $EXE file.lus node <options>"
+  exit
+fi
+
+name=`basename $1 .lus`
+node=$2
+shift
+shift
+
+lustre ${name}.lus $node -oc2 -pure -S4 -causal -merge $ocargs
+if [ "$?" -ne 0 ]; then
+   exit 1
+fi
+/bin/rm -f $node.ec
+ocmin $node.oc -v
+/bin/mv -f ${node}_min.oc $node.oc
+oc2dot $node.oc -o $node $*
+ok=$?
+/bin/rm -f $node.oc
+if [ $ok -ne 0 ]; then
+   echo "Something where wrong ..."
+else
+   echo "File $node.dot created"
+fi

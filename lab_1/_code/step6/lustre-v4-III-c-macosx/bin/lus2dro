@@ -1,0 +1,71 @@
+#!/bin/bash
+
+TOOL=`basename $0`
+
+function usage {
+	echo "usage: $TOOL (file.ec | file.lus node) <gcc options>" >&2
+}
+
+function catch {
+	if [ $1 != 0 ]; then
+		echo "ERROR: $2"
+		exit 1
+	fi
+}
+
+if [ $# -le 0 ]; then
+	usage
+	exit 1
+fi
+
+INFILE=$1
+shift
+EXT=${INFILE##*.}
+
+case "$EXT" in
+	"lus")
+		ZENODE=$1
+		shift
+		lus2ec "$INFILE" "$ZENODE"
+		catch $? "lus2ec failed"
+		ECFILE="$ZENODE.ec"
+	;;
+	"ec")
+		ECFILE="$INFILE"
+	;;
+	*)
+		echo "ERROR: first arg must be an ec/lus file" >&2
+		usage	
+		exit 1
+	;;
+esac
+
+GCCOPTS=$*
+
+BNAME=`basename $ECFILE .ec`
+
+ec2c -dro $ECFILE
+catch $? "ec2c failed"
+
+# gcc command -> dro file (in fact .so) 
+
+gcc $BNAME.c -I$LUSTRE_INSTALL/include $GCCOPTS -shared -o $BNAME.dro
+res=$?
+if [ $res != 0 ]; then
+	echo "ERROR: in gcc" >&2
+	exit 1
+fi
+
+# check undefined ref
+# -> standard libc symbols are not a problem
+function getundef {
+	#nm -u $BNAME.dro
+	nm -u $BNAME.dro | grep "^ *U " | grep -v "@GLIBC"
+}
+
+NBUNDEFS=`getundef | wc -l`
+
+if [ $NBUNDEFS != 0 ]; then
+	echo "WARNING: $NBUNDEFS undefined symbol(s), dro file may not be self-contained:"
+	getundef
+fi

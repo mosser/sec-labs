@@ -3,131 +3,81 @@
   * M2 IF, ENS Lyon
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
-  * Version: 2017.09
+  * Version: 2018.09
   * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step8)
-  * Previous step: [Step #7](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
+  * Previous step: [Step #6](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
 
 ## Objectives
 
-  1. Use a DSL workbench to create a language ([MPS](https://confluence.jetbrains.com/display/MPS/Download+MPS)  2017.2)
-  2. Uses a template-based code generation approach (TextGen)
+  * Discover the principles associated to _Fluent APIs_;
+  * Embed a language inside another one.
 
-## The LED example using MPS
+## The LED example
 
-### Creating a new project
+Instead of writing a new langage, we decide here to _hack_ an existing one (_e.g._, Java). The idea of a fluent interface is to support the definition of a new language by leveraging the available syntax in the host language. For example, the following code is a valid Java code, but is also understandable with respect to our FSM concepts.
 
-We start by creating a new project for a language named ArduinoML, associated to a a _sandbox_ solution (to write programs in ArduinoML) and a _runtime_ solution (for test purpose).
+```Java
+application("theLed")
+	.uses(actuator("led", 13))
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/1_create_project.png" />
-</p>
+	.hasForState("on")
+		.setting("led").toHigh()
+		.goingTo("off")
 
-### Creating the Concepts
+	.hasForState("off")
+		.initial()
+		.setting("led").toLow()
+		.goingTo("on")
 
-Each concept of the ArduinoML abstract syntax tree is modelled as a concept in MPS.
+	.export("./output/fsm.h", "./output/main.c");
+```
 
-  * The `App`, `Actuator` and `State` concepts implements the `INamedConcept` interface as one can use their `name` to reference it;
-  * The `App` concept is considered as a `root`, as it is the entry point of the language;
-  * The `SIGNAL` concept is an Enumeration, containing the `HIGH` and `LOW` value. One can change the way the value are displayed using the _presentation_ field;
-  * Modelling concepts in MPS:
-    * Properties are used to model simple attributes (here the `SIGNAL` to send to a given actuator)
-    * Children are used to model elements that are contained by the concept. An element can only be contained by a single container;
-    * References are used to link an element to another one.
+This approach relies on the definition of methods to support the fluent API. In our example, such elements are defined in the [`dsl`](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step7/src/main/java/io/github/mosser/arduinoml/ens/dsl) package. We use _static methods_ and _builders_ to support the API.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/2_concepts.png" />
-</p>
+### Static methods
 
-Right-click on the project name and select `Make` to synchronise the language with the other solutions (and do this operation each time the tool underlines your models stating that "_generation is required_").
+The application builder is designed to hide its constructor, thus the only way to create an instance of the builder is to call the `application(name: String)` method it provides. The same trick is used for the `actuator` method, supporting a user-friendly way of instantiating an actuator.
 
-### Creating models 
+When creating an application, one import statically these methods (`import static AppBuilder.*`), and can use it directly in the code.
 
-Using these concepts, one can create a program in ArduinoML. Right-click on the _sandobox_ project and create a new `App` (proposed as it is defined as a _root concept_). In MPS, the syntax is made by _projecting_ the AST, and a default project does exists in the tool. 
+```Java
+public static Actuator actuator(String name, int port) {
+	if(name.isEmpty() || !Character.isLowerCase(name.charAt(0)))
+		throw new IllegalArgumentException("Illegal brick name: ["+name+"]");
+	if(port < 1 || port > 13)
+		throw new IllegalArgumentException("Illegal brick port: ["+port+"]");
+	Actuator result = new Actuator();
+	result.setName(name);
+	result.setPin(port);
+	return result;
+}
+```
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/3_template.png" />
-</p>
+### Nested Builders
 
-It is important to notice that you are not editing text, but directly the AST, using a _fill in the blanks_ (the red parts) approach. The LED example is modelled by filling these holes (we added an `isInitial` property in the `State` concept between the 2 screenshots).
+To control the way the API is used, we define intermediary object that expose the right interfaces. For example, inside a given state, calling the `setting` method yields an `InstructionBuilder` that only support the `toLow` or `toHigh` methods. When called, the method returns the parent `StateBuilder`, allowing one to add another instruction.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/4_LED.png" />
-</p>
+```Java
+// class StateBuilder
+public InstructionBuilder setting(String actuatorName) {
+	return new InstructionBuilder(this, actuatorName);
+}
 
-### Modifying the projections
+// class InstructionBuilder
+InstructionBuilder(StateBuilder parent, String target) {
+	this.parent = parent;
+	Optional<Actuator> opt = parent.parent.findActuator(target);
+	Actuator act = opt.orElseThrow(() -> new IllegalArgumentException("Illegal actuator: ["+target+"]"));
+	local.setActuator(act);
+}
 
-The default project has the advantage of existing for free, but is not really user-friendly. To create our own projects, we define _Editors_ associated to the concepts.
-
-MPS provides a DSL to model _editors_. The DSL relies on the definition of collections (horizontal or vertical) to assemble the attributes associated to a given concept in the proper way. This is a tabular approach (which is arguable in terms of design choices and defined syntax) where you need to think of your projection as imbricated boxes. 
-
-One must notice that the automatic completion is mandatory (using CRTL-space) to find the right symbol while defining the projection.
-
-  * `[/` ... `/]`: vertical collection, all elements between these elements will be displayed on a vertical way;
-  *  `[>` ... `<]`: horizontal collection;
-  * `[-` ... `-]`: horizontal collection supporting indentation , using `--->` to specify the indentation level;
-  * `{` x `}`: refers to the property `x` defined in the current concept;
-  * `(/ %` x `%` ... `/)`: vertical collection of children nodes defined in `x`.
-  * `empty`: an empty line
-
-As we are defining a set of projections, building the language automatically update the `LED` model we defined previously.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/5_editor.png" />
-</p>
-
-### Specifying constraints
-
-Constraints are specified as logical expressions evaluated on concept instances. For example, to specify an invariant stating that a pin associated to an actuator must be in [1,13], we associated a logical check on the `Actuator` concept.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/6_constraint_pin.png" />
-</p>
-
-
-A more interesting constraints is the unique property associated to the state names. To implement it, we add a constraints that looks inside the state parent node and check for other states with the very same name
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/7_name.png" />
-</p>
-
-Constraints are _hard_ properties. One can define more _soft_ guidelines. For example, a single initial state should be defined in the FSM. This is done thanks to a _checking rule_ in the type system definition.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/8_check_unique.png" />
-</p>
-
-### Controlling Scope
-
-Concept instances are linked together at the global level, as it is the default scope in MPS. As a consequence, if one create a second App named `led2` in the sandbox solution, it is possible to refer to actuators or states defined in `led2` inside the `led` application.
-
-MPS provides scoping mechanisms to support this task. To state that the `State` concept must not use the default global scope but an home-made one, we add a constraint to the `State` stating that when looking to fill the `next` reference with a `State`, it must inherit it from something defined in its containment hierarchy.
- 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/9_scope_inherit.png" />
-</p>
-
-We use the `App` concept as our scope provider (it must then implements the `ScopeProvider` interface in addition to the `INamedConcept` one). We create a behaviour associated to the `App` concept, and override (use the CTRL-O shortcut to open a list of overridable methods) the `getScope` method. The implementation is straightforward: if asking for a `State`, we return all the states defined in the App. We do something similar for the actuators, and return `null` when asked for something else.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/10_behavior.png" />
-</p>
- 
-### Generating code
-
-MPS supports a template based generation mechanism named _TextGen_. It also supports language composition mechanisms, which is more expressive but also more complex. In this lab, we will rely on the simple TextGen.
-
-For each concept, we define a `TextGenComponent` describing how the concept must be projected into plain text. For example, the actuator concept is projected by declaring an integer variable named like the actuator and containing the PIN number. We use the `append` keyword to add text to the generation buffer.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/11_textgen_act.png" />
-</p> 
- 
-A root concept will also define the generated filename and extension. When appending a model element, TextGen will recursively call the associated template. The system can automatically iterates on a collection of objects, using the `$list` keyword.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mosser/sec-labs/master/lab_1/figs/mps/12_textgen_app.png" />
-</p>
-
+public StateBuilder toHigh() {
+	local.setValue(SIGNAL.HIGH);
+	parent.local.getActions().add(this.local);
+	return parent;
+}    
+```
+Using this programming style, we have a direct control on the language syntax, and one can rely on the code completion mechanism to write in the created language.
 
 ## Expected Work
 
@@ -135,15 +85,16 @@ A root concept will also define the generated filename and extension. When appen
   * Identify the abstractions needed in the language to support the 7-segment display;
   * Adapt the language to support it.
 
+## Feedback questions
+
+  * How to chose between embedded or external?
+  * What is the impact of the host language choice?
+  * What about the maintainability of the concrete syntax?
+  * Who is targeted as an audience by this class of languages?
+
 ## Documentation & Bibliography
 
-  * (other) Existing DSL workbenches
-    * XText
-    * Spoofax
-    * MetaEdit 
-    * Gemoc Studio
-    * ...
-  * [MPS documentation](https://confluence.jetbrains.com/display/MPSD20172/MPS+User%27s+Guide) 
-    * [Calculator tutorial](https://www.jetbrains.com/help/mps/mps-calculator-language-tutorial.html) 
+  * [Domain Specific Languages](https://martinfowler.com/books/dsl.html), Martin Fowler (Part IV: _Internal DSL Topics_)
+  * [ArduinoML syntax Zoo](https://github.com/mosser/ArduinoML-kernel/tree/master/embeddeds) (Embedded section)
 
-  * Going to next step: _That's all folks!_
+  * Going to next step: [Step #7](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)

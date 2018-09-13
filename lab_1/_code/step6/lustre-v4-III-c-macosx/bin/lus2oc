@@ -1,0 +1,20 @@
+#!/bin/sh
+#lustre -> oc shell script
+EC2OC=ec2oc
+LUS2EC=lus2ec
+TOOL=`basename $0`
+if test $# -lt 2
+then
+   echo "usage: $TOOL <lustre file> <main node> [<options>]"
+	$EC2OC -opts
+   exit 1
+fi;
+FILE=$1
+MAIN=$2
+shift 
+shift
+$LUS2EC $FILE $MAIN
+if test $? -eq 0
+then
+	$EC2OC $MAIN.ec $* 
+fi
