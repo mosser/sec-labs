@@ -110,6 +110,14 @@ private static App buildModel(CharStream stream) {
   * Identify the abstractions needed in the language to support the 7-segment display;
   * Adapt the language to support it.
 
+## Feedback Questions
+
+  * Who is the intended user ? What about the tooling associated to the language?
+  * More generally, what is the cost of such an approach?
+  * To what extent is the language fragile to the introduction of new features?
+  * What is the relationship between the meta-model and the grammar?
+  * How to validate that the defined syntax is the right one?
+
 ## Documentation & Bibliography
 
   * [http://www.antlr.org/](http://www.antlr.org/)

@@ -7,7 +7,7 @@
 
 ## Course Outline
 
-Please read the paper published at `EduSymp'18` (workshop of the MODELS conference) that describe the course: [Practicing Domain-Specific Languages: From Code to Models](https://hal.archives-ouvertes.fr/hal-01865448/document), L. Gonnord and S. Mosser. 
+Please read the paper published at `EduSymp'18` (workshop of the MODELS conference) that describe the course: [Practicing Domain-Specific Languages: From Code to Models](https://hal.archives-ouvertes.fr/hal-01865448/document), L. Gonnord and S. Mosser.
 
 
 ### Phase #1: ArduinoML as a sandbox (Padawan)
@@ -15,27 +15,21 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   - Week 37: Friday, 1:30PM -> 5:30PM
     - :book: Lecture (3h): Introduction to Model-driven Engineering & Domain-specific Languages (SM)
     - :hammer: Lab (1h): Kickstarting the ArduinoML lab
-
   - Week 38:
     - _No Lecture_
     - _Unsupervised lab_
-
   - Week 39: Friday, 1:30PM -> 5:30PM
     - :book: Lecture (2h): Implementing a DSL (SM)
     - :hammer: Lab (2h): Presentation by students of their lab status (steps 1 -> 4) + lab work
-
   - Week 40:
-  - _No Lecture_
-  - _Unsupervised lab_
-
+    - _No Lecture_
+    - _Unsupervised lab_
   - Week 41: Friday, 1:30PM -> 5:30PM
     - _No Lecture_
     - :hammer: Lab (4h): Presentation by students of their lab status (steps 5 + one another according to student's tastes) + lab work
-
   - Week 42:
-  - _No Lecture_
-  - _Unsupervised lab_
-
+    - _No Lecture_
+    - _Unsupervised lab_
   - Week 43: Friday, :alarm_clock: **8AM -> 10AM**
     - :book: Lecture (1h): Software composition (SM)
     - :mag_right: Evaluation (1h): Final presentations for the ArduinoML project
@@ -45,50 +39,38 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   - Week 43: Friday, 1:30PM -> 4:30PM
     - :book: Lecture (1h): Verification & Validation (LG)
     - :hammer: Lab (2h): Kick-starting Sensor simulation lab
-
   - Week 44: _Hollidays_
-
   - Week 45:
-  - _No Lecture_
-  - _Unsupervised lab_
-
+    - _No Lecture_
+    - _Unsupervised lab_
   - Week 46: _No Lecture (Winter school: Data analysis and machine learning)_
-
   - Week 47: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
     - :book: Lecture (1h): Advanced Code Generation
     - :hammer: Lab (2h): Lab status + Lab Work
-
   - Week 48: _No Lecture (Winter school: Computer Virology)_
-
   - Week 49: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
     - :hammer: Lab (2h): Lab status + Lab Work
     - :mag_right: Evaluation (1h): Intermediate project demonstration
-
   - Week 50:
     - _No Lecture_
     - _Unsupervised lab_
-
   - Week 51:
     - _No Lecture_
     - _Unsupervised lab_
-
   - Week 52: _Hollidays_
-
   - Week 1: _Hollidays_
-
   - Week 2: Friday, :alarm_clock: **3:30PM-> 5:30PM** (SM remote from Montreal)
     - :mag_right: Evaluation (2h): Project presentation + Paper presentation.
 
 ### Deliveries
 
-  - Week43:
-    1. A file named `ArduinoML-lastname1-lastname2.tar.gz` containing:
+  - Week 43:
+    - A file named `ArduinoML-lastname1-lastname2.tar.gz` containing:
       - The code of the implemented steps (in separated sub-directories);
       - A `Readme.md` file with answers to the steps feedback questions
-    2. The selected papers for the review assignment (individual).
+    - The selected papers for the review assignment (individual).
 
-  - Week 51:
-    1.  A file named `SSL-lastname1-lastname2.tar.gz` containing:
+  - Week 51: A file named `SSL-lastname1-lastname2.tar.gz` containing:
       - The code of the DSL defined in the project;
       - Examples that uses the DSL to address the challenges of the project;
       - A report `lastname1-lastname2.pdf` describing the abstract syntax of the language, your design choices, and the strengths and weaknesses of the language.

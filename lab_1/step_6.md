@@ -1,11 +1,11 @@
-# SEC-Lab1, Step 5
+# SEC-Lab1, Step 6
 
   * M2 IF, ENS Lyon
   * Sébastien Mosser, Université Cote d'Azur, I3S, [email](mailto:mosser@i3s.unice.fr)
   * Laure Gonnord, Université Lyon 1, LIP [email](mailto:laure.gonnord@ens-lyon.fr)
-  * Version: 2017.09
-  * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step5)
-  * Previous step: [Step #4](https://github.com/mosser/sec-labs/blob/master/lab_1/step_4.md)
+  * Version: 2018.09
+  * [Starter code](https://github.com/mosser/sec-labs/tree/master/lab_1/_code/step6)
+  * Previous step: [Step #4](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
 
 
 ## Objectives
@@ -78,4 +78,12 @@ modify `main.c` and the glue code.
 * Modify the Lustre code  for the seven segment display. Compile,
 test!
 
-* Going to next step: [Step #6](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
+## Feedback Questions
+
+  * Who is the intended user for such a language?
+  * What is the cost of reusing this existing DSL for the developer in terms of code?
+  * What is the cost of adding a new task of our domain?
+  * Was is the cost of adding a new hardware target?
+  * The Lustre language comes with its own ecosystem (test, formal verification), what are the generic properties we can imagine to prove from our domain?
+
+* Going to next step: [Step #7](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
