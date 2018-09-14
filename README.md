@@ -15,7 +15,7 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   * Lab support: [ArduinoML at ≠ levels of abstraction](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
 
   - Week 37: Friday, 1:30PM -> 5:30PM
-    - :book: Lecture (3h): Introduction to Model-driven Engineering & Domain-specific Languages (SM)
+    - :book: Lecture (3h): [Introduction to Model-driven Engineering & Domain-specific Languages](https://github.com/mosser/sec-labs/blob/master/lectures/37_1_MDE_DSL.pdf) (SM)
     - :hammer: Lab (1h): Kickstarting the ArduinoML lab
   - Week 38:
     - _No Lecture_
