@@ -30,9 +30,10 @@ We decomposed this lab into 8 steps, from a low level of abstraction (plain old 
   2. [Using the ArduinoLib](https://github.com/mosser/sec-labs/blob/master/lab_1/step_2.md)
   3. [Implementing a Finite State Machine](https://github.com/mosser/sec-labs/blob/master/lab_1/step_3.md)
   4. [Modelling a Finite state machine](https://github.com/mosser/sec-labs/blob/master/lab_1/step_4.md)
-  5. [Using an existing language: Lustre](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
-  6. [Implementing an external compiler](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
-  7. [Embedding inside an host language](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
-  8. [Using a DSL workbench](https://github.com/mosser/sec-labs/blob/master/lab_1/step_8.md)
+  5. [Re-modelling the domain](https://github.com/mosser/sec-labs/blob/master/lab_1/step_5.md)
+  6. [Using an existing language: Lustre](https://github.com/mosser/sec-labs/blob/master/lab_1/step_6.md)
+  7. [Implementing an external compiler](https://github.com/mosser/sec-labs/blob/master/lab_1/step_7.md)
+  8. [Embedding inside an host language](https://github.com/mosser/sec-labs/blob/master/lab_1/step_8.md)
+  9. [Using a DSL workbench](https://github.com/mosser/sec-labs/blob/master/lab_1/step_9.md)
 
 For each step, the kick-off code is available under the [code directory](https://github.com/mosser/sec-labs/tree/master/lab_1/_code). Use it as a starter to support the LED case study and to be adapted for the counter one.
