@@ -12,6 +12,8 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
 
 ### Phase #1: ArduinoML as a sandbox (Padawan)
 
+  * Lab support: [ArduinoML at ≠ levels of abstraction](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
+
   - Week 37: Friday, 1:30PM -> 5:30PM
     - :book: Lecture (3h): Introduction to Model-driven Engineering & Domain-specific Languages (SM)
     - :hammer: Lab (1h): Kickstarting the ArduinoML lab
@@ -35,6 +37,8 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
     - :mag_right: Evaluation (1h): Final presentations for the ArduinoML project
 
 ### Phase #2: Sensor Simulation engine (Master)
+
+  * Lab support: [Sensor Simulation Language]()
 
   - Week 43: Friday, 1:30PM -> 4:30PM
     - :book: Lecture (1h): Verification & Validation (LG)
