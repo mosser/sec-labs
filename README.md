@@ -50,10 +50,10 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   - Week 46: _No Lecture (Winter school: Data analysis and machine learning)_
   - Week 47: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
     - :book: Lecture (1h): Advanced Code Generation
-    - :hammer: Lab (2h): Lab status + Lab Work
+    - :hammer: Lab (1h): Lab status + Lab Work
   - Week 48: _No Lecture (Winter school: Computer Virology)_
   - Week 49: Friday, 1:30PM -> 3:30PM (SM remote from Nice)
-    - :hammer: Lab (2h): Lab status + Lab Work
+    - :hammer: Lab (1h): Lab status + Lab Work
     - :mag_right: Evaluation (1h): Intermediate project demonstration
   - Week 50:
     - _No Lecture_
