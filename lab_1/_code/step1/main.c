@@ -28,26 +28,64 @@ int get_reset_value(){ // on digital 10 ie bit 2
 void display_7seg(int value){
   switch (value) {
   case 0: //a,b,c,d,e,f should be OFF (common anode)
-    PORTD = 0b10000001;
-    break; //TODO : complete for other values.
+    PORTD = 0b10000000;
+    break; 
+  case 1:
+    PORTD = 0b11110010;
+    break;
+  case 2:
+    PORTD = 0b01001000;
+    break;
+  case 3:
+    PORTD = 0b01100000;
+    break;
+  case 4:
+    PORTD = 0b00110010;
+    break;
+  case 5:
+    PORTD = 0b00100100;
+    break;
+  case 6:
+    PORTD = 0b00000100;
+    break;
+  case 7:
+    PORTD = 0b11110000;
+    break;
+  case 8:
+    PORTD = 0b00000000;
+    break;
+  case 9:
+    PORTD = 0b00100000;
+    break;
+  // find how the led works actually
   default:
     PORTD = 0b00000000; 
   }
 }
 
 void change_7seg_state (){
-  return;
+  PORTD ^= 0b00100000;
 }
   
 int main(void)
 {
   init();
+  int value = 0;
   while(1) //infinite loop
     {
-      display_7seg(0); // uncomment to test the 7-seg when DDRD is configured
-      change_led_state();
+      display_7seg(value);
+      // value = (value + 1) % 10;      
+      value = rand() % 10;
+
+       // uncomment to test the 7-seg when DDRD is configured
+      if (get_reset_value()) {
+        change_led_state();
+        value = 0;
+      }
+
       _delay_ms(1000);     // 1Hz period
     }
   
   return 0;
 }
+

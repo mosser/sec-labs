@@ -24,7 +24,11 @@ STTY_OPT = -f
 AVRDUDE_PATH = /opt/local/bin/
 AVRDUDECONF_PATH = /opt/local/etc/
 else # only linux is supported, haven't checked for varieties here
+ifneq ("$(wildcard /etc/arch-release)","")
+ARDUINO_HW_ROOT = /usr/share/arduino/hardware/archlinux-arduino/avr/
+else
 ARDUINO_HW_ROOT = /usr/share/arduino/hardware/arduino/
+endif
 TERM = /dev/ttyACM0
 STTY_OPT = -F
 AVRDUDE_PATH = /usr/bin/
