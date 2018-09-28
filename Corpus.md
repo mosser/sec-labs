@@ -1,6 +1,25 @@
 # Bibliography Corpus for SEC 2018
 
+## Int. Conf. on Programming Languages, Design and Implementation (PLDI, A*)
 
+### 2018 Edition
+
+   - Jeehoon Kang, Yoonseung Kim, Youngju Song, Juneyoung Lee,
+     Sanghoon Park, Mark Dongyeon Shin, Yonghyun Kim, Sungkeun Cho,
+     Joonwon Choi, Chung-Kil Hur, Kwangkeun Yi: _Crellvm: Verified
+     Credible Compilation for LLVM_
+   - Justin Pombrio, Shriram Krishnamurthi: _Inferring Type Rules for Syntactic Sugar_
+   - Simon Moll, Sebastian Hack: _Partial Control-Flow Linearization_
+   
+### 2017 Edition
+		
+   - David Menendez, Santosh Nagarakatte : _ALIVE-INFER: Data-Driven Precondition Inference for Peephole Optimizations in LLVM_
+   - Timothy Bourke, Lelio Brun, Pierre-Evariste Dagand, Xavier Leroy,
+Marc Pouzet, Lionel Rieg: _A Formally Verified Compiler for Lustre_
+   - Juneyoung Lee, Yoonseung Kim, Youngju Song, Chung-Kil Hur, Sanjoy Das,
+David Majnemer, John Regehr, Nuno P. Lopes: _Taming Undefined Behavior in LLVM_
+   
+   
 ## Int. Conf. on Software Engineering (ICSE, A*)
 
 ### 2018 Edition

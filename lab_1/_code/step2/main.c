@@ -61,6 +61,7 @@ int main(void)
     { 
       // displayDigit(0); // uncomment to test
       change_state_led();
+      digitalWrite(a,LOW);
       _delay_ms(1000);
       
     }
