@@ -15,33 +15,31 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   * Lab support: [ArduinoML at ≠ levels of abstraction](https://github.com/mosser/sec-labs/blob/master/lab_1/README.md)
 
   - Week 37: Friday, 1:30PM -> 5:30PM
-    - :book: Lecture (3h): [Introduction to Model-driven Engineering & Domain-specific Languages](https://github.com/mosser/sec-labs/blob/master/lectures/37_1_MDE_DSL.pdf) (SM)
+    - :book: Lecture (3h): [Introduction to Model-driven Engineering & Domain-specific Languages](./37_1_MDE_DSL.pdf) (SM)
     - :hammer: Lab (1h): Kickstarting the ArduinoML lab
   - Week 38:
     - _No Lecture_
     - _Unsupervised lab_
   - Week 39: Friday, 1:30PM -> 5:30PM
-    - :book: Lecture (2h): Implementing a DSL (SM)
+    - :book: Lecture (2h): [Implementing a DSL](./lectures/39_1_Implem_DSL.pdf), [Using Groovy to implement embedded DSL](./lectures/39_2_groovy.pdf) (SM)
     - :hammer: Lab (2h): Presentation by students of their lab status (steps 1 -> 4) + lab work
   - Week 40:
-    - _No Lecture_
     - _Unsupervised lab_
   - Week 41: Friday, 1:30PM -> 5:30PM
-    - _No Lecture_
-    - :hammer: Lab (4h): Presentation by students of their lab status (steps 5 + one another according to student's tastes) + lab work
+    - :book: Lecture (1h): Verification & Validation, Lustre as example.
+    - :hammer: Lab (3h): Presentation by students of their lab status (steps 5 + one another according to student's tastes) + lab work
   - Week 42:
     - _No Lecture_
     - _Unsupervised lab_
   - Week 43: Friday, :alarm_clock: **8AM -> 10AM**
-    - :book: Lecture (1h): Software composition (SM)
-    - :mag_right: Evaluation (1h): Final presentations for the ArduinoML project
+    - :mag_right: Evaluation (2h): Final presentations for the ArduinoML project
 
 ### Phase #2: Sensor Simulation engine (Master)
 
   * Lab support: [Sensor Simulation Language]()
 
   - Week 43: Friday, 1:30PM -> 4:30PM
-    - :book: Lecture (1h): Verification & Validation (LG)
+    - :book: Lecture (1h): Software composition (SM)
     - :hammer: Lab (2h): Kick-starting Sensor simulation lab
   - Week 44: _Hollidays_
   - Week 45:
