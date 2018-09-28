@@ -18,7 +18,22 @@
 Marc Pouzet, Lionel Rieg: _A Formally Verified Compiler for Lustre_
    - Juneyoung Lee, Yoonseung Kim, Youngju Song, Chung-Kil Hur, Sanjoy Das,
 David Majnemer, John Regehr, Nuno P. Lopes: _Taming Undefined Behavior in LLVM_
-   
+ 
+
+##  SPLASH / OOPSLA (Programming Languages, A)
+
+### 2018
+
+   - Yunming Zhang, Mengjiao Yang, Riyadh Baghdadi, Shoaib Kamil, Julian
+Shun, Saman Amarasinghe: _GraphIt - A High-Performance Graph DSL_
+   - Fengmin Zhu, Fei He: _Conflict Resolution for Structured Merge
+     via Version Space Algebra_
+	 
+### 2017	 
+
+   - Xiaokang Qiu, Armando Solar-Lezama:    _Natural Synthesis of Provably-Correct Data-Structure Manipulations_
+   - Fredrik Kjolstad, Shoaib Kamil, Stephen Chou, David Lugato, Saman
+     Amarasinghe: _ The Tensor Algebra Compiler_
    
 ## Int. Conf. on Software Engineering (ICSE, A*)
 
