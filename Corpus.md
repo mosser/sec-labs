@@ -35,6 +35,30 @@ Shun, Saman Amarasinghe: _GraphIt - A High-Performance Graph DSL_
    - Fredrik Kjolstad, Shoaib Kamil, Stephen Chou, David Lugato, Saman
      Amarasinghe: _ The Tensor Algebra Compiler_
    
+
+## Static Analysis Symposium (SAS, A)
+
+### 2018 
+
+   - Kedar Namjoshi and Zvonimir Pavlinovic: _The Impact of Program Transformations on Static Program Analysis_
+
+### 2017 
+
+   - Divyesh Unadkat, Supratik Chakraborty and Ashutosh Gupta: _Verifying Array Manipulating Programs by Tiling_
+
+## Code Generation and Optimisation (A)
+
+### 2018
+
+   - Synthesizing an Instruction Selection Rule Library from Semantic Specifications
+Sebastian Buchwald, Andreas Fried (Karlsruhe Institute of Technology), Sebastian Hack (Saarland University)
+
+
+### 2017
+
+
+TODO
+
 ## Int. Conf. on Software Engineering (ICSE, A*)
 
 ### 2018 Edition
