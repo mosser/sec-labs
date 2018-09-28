@@ -28,7 +28,8 @@ Do the same as before: code generation from this meta-model, the
 generated code should look like:
 
 
-`#include <avr/io.h>
+```C
+#include <avr/io.h>
 #include <util/delay.h>
 #include <Arduino.h>
 
@@ -48,7 +49,7 @@ int main(void) {
   }
   return 0;
 }
-`
+```
 
 
 
