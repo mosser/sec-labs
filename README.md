@@ -36,7 +36,7 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
 
 ### Phase #2: Sensor Simulation engine (Master)
 
-  * Lab support: [Sensor Simulation Language]()
+  * Lab support: [Sensor Simulation Language](./lab_2/README.md)
 
   - Week 43: Friday, 1:30PM -> 4:30PM
     - :book: Lecture (1h): Software composition (SM)
