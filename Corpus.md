@@ -1,5 +1,21 @@
 # Bibliography Corpus for SEC 2018
 
+
+
+## Paper Presentation Expectations
+
+
+Prepare a 10 minutes presentation (hard limit), that addresses the following point for your selected paper:
+
+  - Context of the research;
+  - Research challenge addressed by the authors;
+  - Results obtained;
+  - Threats to validity
+  - Your analysis of the obtained result.
+
+Your critical analysis of the contribution (_e.g._, threats to validity and analysis) worths 50% of the final mark.
+
+
 ## Int. Conf. on Programming Languages, Design and Implementation (PLDI, A*)
 
 ### 2018 Edition
