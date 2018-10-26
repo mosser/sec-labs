@@ -1,7 +1,7 @@
 # Data Sensor Simulation Backend
 
   * author: Sebastien Mosser
-  * version: 17.10
+  * version: 18.10
   * Based on [https://github.com/nicolargo/docker-influxdb-grafana/](https://github.com/nicolargo/docker-influxdb-grafana/) & discussions with Romain Rouvoy
 
 
