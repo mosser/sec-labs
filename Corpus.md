@@ -17,6 +17,7 @@ Your critical analysis of the contribution (_e.g._, threats to validity and anal
 ### Chosen Papers:
 
   - *How Many of All Bugs Do We Find?A Study of Static Bug Detectors* (Mathieu Vavrille)
+  - *Energy efficiency across programming languages: how do energy, time, and memory relate?* (Simon)
 
 
 
