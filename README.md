@@ -39,7 +39,7 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   * Lab support: [Sensor Simulation Language](./lab_2/README.md)
 
   - Week 43: Friday, 1:30PM -> 4:30PM
-    - :book: Lecture (1h): Software composition (SM)
+    - :book: Lecture (1h): [Software Composition](./lectures/43_Software_Composition.pdf) (SM)
     - :hammer: Lab (2h): Kick-starting Sensor simulation lab
   - Week 44: _Hollidays_
   - Week 45:

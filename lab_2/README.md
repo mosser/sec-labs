@@ -26,50 +26,7 @@ We propose to use the following technological stack to support the simulated dat
 
 See the [backend technical description](./backend/README.md) for more details.
 
-### Collecting Measurements
 
-The collection middleware is implemented on top of InfluxDB, a database dedicated to store time series. Considering a standard deployment where the database is available at localhost on port 8086, one can create a database and then push a measurement using the following HTTP requests:
-
-```
-$ curl -i -XPOST http://localhost:8086/query --data-urlencode \
-	"q=CREATE DATABASE my_database"
-$ curl -i -XPOST 'http://localhost:8086/write?db=my_database' --data-binary \ 
-	'a_given_sensor value=0.64 1507233041000000000'
-```
-
-
-### Displaying Measurements
-
-The Grafana tool can be easily connected to InfluxDB, and is used to graph measurements matching a given request on the data source. Here is an example of the extraction of the measurement associated to the sensor named ‘a_given_sensor’ displayed as a time serie.
-
-<div align="center">
-
-![Grafana screensho](./_figs/grafana.png)
-
-</div>
-
-
-### Deploying the Backend
-
-Both InfluxDB and Grafana are available as docker images on the official store. As a consequence, one can use docker-compose to create a composition of these two images that deploy the backend as easily as running `docker-compose up -d`.
-
-```yaml
-influxdb:
-  image: influxdb:latest
-  container_name: dsl-influxdb
-  ports:
-    - "8086:8086"
-  volumes:
-    - ./influxdb-data:/var/lib/influxdb
-
-grafana:
-  image: grafana/grafana:latest
-  container_name: dsl-grafana
-  ports:
-    - "3000:3000"
-  volumes:
-    - ./grafana-data:/var/lib/grafana
-```
 
 ## Replaying Existing Measurements
 
