@@ -23,6 +23,10 @@ Your critical analysis of the contribution (_e.g._, threats to validity and anal
   - *Energy Efficiency across Programming Languages - How Does Energy, Time, and Memory Relate?* (Pierre-Étienne)
   - *A static verification framework for message passing in Go using behavioural types* (Vincent)
   - *Active Domain-Specific Languages: Making Every Mobile User a Modeller.* (Guillaume C.)
+  - *Metacasanova: an optimized meta-compiler for domain-specific languages* (Guillaume D.)
+  - *A Haskell compiler for signal transforms* (Lucas)
+  - *Rewriting a shallow DSL using a GHC compiler extension* (Peio)
+  - *Taming Undefined Behavior in LLVM* (Calvin)
 
 
 
