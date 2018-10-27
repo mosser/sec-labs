@@ -19,6 +19,7 @@ Your critical analysis of the contribution (_e.g._, threats to validity and anal
   - *How Many of All Bugs Do We Find?A Study of Static Bug Detectors* (Mathieu Vavrille)
   - *Energy efficiency across programming languages: how do energy, time, and memory relate?* (Simon)
   - *Software performance self-adaptation through efficient model predictive control.* (Tristan)
+  - *Do Developers Read Compiler Error Messages?* (Tymofee)
 
 
 
