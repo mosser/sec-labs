@@ -20,6 +20,7 @@ Your critical analysis of the contribution (_e.g._, threats to validity and anal
   - *Energy efficiency across programming languages: how do energy, time, and memory relate?* (Simon)
   - *Software performance self-adaptation through efficient model predictive control.* (Tristan)
   - *Do Developers Read Compiler Error Messages?* (Tymofee)
+  - *Energy Efficiency across Programming Languages - How Does Energy, Time, and Memory Relate?* (Pierre-Étienne)
 
 
 
