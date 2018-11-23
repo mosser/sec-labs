@@ -26,7 +26,7 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
   - Week 40:
     - _Unsupervised lab_
   - Week 41: Friday, 1:30PM -> 5:30PM
-    - :book: Lecture (1h): Verification & Validation, Lustre as example.
+    - :book: Lecture (1h): [Verification & Validation, Lustre as example](./lectures/41_VandV.pdf).
     - :hammer: Lab (3h): Presentation by students of their lab status (steps 5 + one another according to student's tastes) + lab work
   - Week 42:
     - _No Lecture_
