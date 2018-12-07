@@ -76,9 +76,14 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
       - The code of the DSL defined in the project;
       - Examples that uses the DSL to address the challenges of the project;
       - A report `lastname1-lastname2.pdf` describing the abstract syntax of the language, your design choices, and the strengths and weaknesses of the language.
+      
+  - Week 2: (10.01.18, 23h59)
+    - A file named _lastname.pdf_ containing your paper review (see guidelines sent by email)
+    - Up to 2 pages (3 is a max), 11 pts, times/computer moder, single spaced, single column 
+    - This paper should help you to prepare your presentation.
 
 ## Evaluation
 
   - ArduinoML Lab: 20%
-  - Paper presentation: 40%
-  - Sensor Simulation Project: 40%
+  - Paper presentation: 40% (review + presentation)
+  - Sensor Simulation Project: 40% (report + code)
