@@ -20,7 +20,7 @@ Your critical analysis of the contribution (_e.g._, threats to validity and anal
   - *Energy efficiency across programming languages: how do energy, time, and memory relate?* (Simon)
   - *Software performance self-adaptation through efficient model predictive control.* (Tristan)
   - *Do Developers Read Compiler Error Messages?* (Tymofee)
-  - *Energy Efficiency across Programming Languages - How Does Energy, Time, and Memory Relate?* (Pierre-Étienne)
+  - *Diagnosing Assumption Problems in Safety-Critical Products* (Pierre-Étienne)
   - *A static verification framework for message passing in Go using behavioural types* (Vincent)
   - *Active Domain-Specific Languages: Making Every Mobile User a Modeller.* (Guillaume C.)
   - *Metacasanova: an optimized meta-compiler for domain-specific languages* (Guillaume D.)
