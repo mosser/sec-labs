@@ -61,7 +61,7 @@ Please read the paper published at `EduSymp'18` (workshop of the MODELS conferen
     - _Unsupervised lab_
   - Week 52: _Hollidays_
   - Week 1: _Hollidays_
-  - Week 2: Friday, :alarm_clock: **1:30PM-> 3:30PM** (SM remote from Montreal)
+  - Week 2: Friday, :alarm_clock: **1:30PM-> 4:30PM** (SM remote from Montreal)
     - :mag_right: Evaluation (2h): Project presentation + Paper presentation.
 
 ### Deliveries
